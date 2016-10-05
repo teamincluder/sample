@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Controller : MonoBehaviour {
+
 	[SerializeField]
 	KeyCode LeftKey 	= new KeyCode();
 	[SerializeField]
@@ -18,8 +19,10 @@ public class Controller : MonoBehaviour {
 	KeyCode JumpKey 	= new KeyCode();
 	[SerializeField]
 	KeyCode StrongKey	= new KeyCode();
+
 	[SerializeField]
 	Rigidbody2D rb		= new Rigidbody2D();
+
 	bool	isGround	= false;
 
 	// Use this for initialization
@@ -30,43 +33,51 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.anyKey) {
-			move_Func ();
-			jab_Func();
-			strong_Func();
-			jump_Func();
-			guard_Func();
+			Move_Func ();
+			Jab_Func();
+			Strong_Func();
+			Jump_Func();
+			Guard_Func();
 		}
 	}
 
-	void move_Func(){
-		Vector3	vec	=	new Vector3();
+	void Move_Func(){
+		Vector3	vec	= Vector3.zero;
+		if (Input.GetKey (RightKey) && Input.GetKey (LeftKey) && isGround)
+			return;
 		if(Input.GetKey(RightKey)){
-			vec.x=0.02f;				
-			this.transform.localScale=new Vector3(1,1,1);
+			vec.x = 0.02f;				
+			this.transform.localScale = new Vector3(1,1,1);
 		}
 		if(Input.GetKey(LeftKey)){
-			vec.x=-0.02f;
-			this.transform.localScale=new Vector3(-1,1,1);
+			vec.x = -0.02f;
+			this.transform.localScale = new Vector3(-1,1,1);
 		}
 		vec += this.transform.position;
 		this.transform.position = vec;
 	}
-	void jab_Func(){
+	void Jab_Func(){
 		if (Input.GetKeyDown (JabKey))
 			Debug.Log ("弱攻撃！");
 	}
-	void strong_Func(){
+	void Strong_Func(){
 		if (Input.GetKeyDown (StrongKey))
 			Debug.Log ("強攻撃！");
 	}
-	void jump_Func(){
-		if(Input.GetKeyDown(JumpKey))
-			rb.AddForce (new Vector2(0,5f),ForceMode2D.Impulse);
+	void Jump_Func(){
+		if (Input.GetKeyDown (JumpKey) && isGround) {
+			rb.AddForce (new Vector2 (0, 5f), ForceMode2D.Impulse);
+			isGround=false;
+		}
 	}
-	void guard_Func(){
+	void Guard_Func(){
 		if (Input.GetKeyDown (GuardKey))
 			Debug.Log ("ガード！");
 	}
+	void OnTriggerEnter2D(Collider2D other){
 
-
+		if (other.tag == "Ground") {
+			isGround = true;
+		}
+	}
 }
