@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Controller : MonoBehaviour {
-
 	[SerializeField]
 	KeyCode LeftKey 	= new KeyCode();
 	[SerializeField]
@@ -43,8 +42,8 @@ public class Controller : MonoBehaviour {
 
 	void Move_Func(){
 		Vector3	vec	= Vector3.zero;
-		if (Input.GetKey (RightKey) && Input.GetKey (LeftKey) && isGround)
-			return;
+		//if (Input.GetKey (RightKey) && Input.GetKey (LeftKey) && isGround)
+		//	return;
 		if(Input.GetKey(RightKey)){
 			vec.x = 0.02f;				
 			this.transform.localScale = new Vector3(1,1,1);
@@ -52,6 +51,10 @@ public class Controller : MonoBehaviour {
 		if(Input.GetKey(LeftKey)){
 			vec.x = -0.02f;
 			this.transform.localScale = new Vector3(-1,1,1);
+		}
+		if (Input.GetKeyDown (UpKey) && isGround) {
+			rb.AddForce (new Vector2 (0, 2.5f), ForceMode2D.Impulse);
+			isGround = false;
 		}
 		vec += this.transform.position;
 		this.transform.position = vec;
@@ -66,7 +69,7 @@ public class Controller : MonoBehaviour {
 	}
 	void Jump_Func(){
 		if (Input.GetKeyDown (JumpKey) && isGround) {
-			rb.AddForce (new Vector2 (0, 5f), ForceMode2D.Impulse);
+			rb.AddForce (new Vector2 (0, 3f), ForceMode2D.Impulse);
 			isGround=false;
 		}
 	}
@@ -74,10 +77,14 @@ public class Controller : MonoBehaviour {
 		if (Input.GetKeyDown (GuardKey))
 			Debug.Log ("ガード！");
 	}
-	void OnTriggerEnter2D(Collider2D other){
-
+	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Ground") {
 			isGround = true;
+		}
+	}
+	void OnTriggerExit2D(Collider2D other){
+		if (other.tag == "Ground") {
+			isGround = false;
 		}
 	}
 }
