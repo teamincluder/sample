@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Controller : MonoBehaviour {
+	/*Key Settings*/
 	[SerializeField]
 	KeyCode LeftKey 	= new KeyCode();
 	[SerializeField]
@@ -18,64 +19,77 @@ public class Controller : MonoBehaviour {
 	KeyCode JumpKey 	= new KeyCode();
 	[SerializeField]
 	KeyCode StrongKey	= new KeyCode();
-
+	/* Charactor RigidBody */
 	[SerializeField]
 	Rigidbody2D rb		= new Rigidbody2D();
-
-	bool	isGround	= false;
-
+	/* is Ground */
+	bool isGround	= false;
+	[SerializeField]
+	AnimController Anim;
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.anyKey) {
-			Move_Func ();
-			Jab_Func();
-			Strong_Func();
+		if (Input.GetKey (RightKey)) {
+			Right_Move_Func();
+		}
+		if (Input.GetKey (LeftKey)) {
+			Left_Move_Func();
+		}
+		if (Input.GetKeyDown (UpKey)) {
 			Jump_Func();
+		}
+		if (Input.GetKey (DownKey)) {
+		}
+		if (Input.GetKeyDown (JabKey)) {
+			Jab_Func();
+		}
+		if (Input.GetKeyDown (StrongKey)) {
+			Strong_Func();
+		}
+		if (Input.GetKeyDown (GuardKey)) {
 			Guard_Func();
 		}
+		if (Input.GetKeyDown (JumpKey)) {
+			Jump_Func();
+		}
 	}
-
-	void Move_Func(){
+	void Right_Move_Func(){
 		Vector3	vec	= Vector3.zero;
-		//if (Input.GetKey (RightKey) && Input.GetKey (LeftKey) && isGround)
-		//	return;
-		if(Input.GetKey(RightKey)){
-			vec.x = 0.02f;				
-			this.transform.localScale = new Vector3(1,1,1);
-		}
-		if(Input.GetKey(LeftKey)){
-			vec.x = -0.02f;
-			this.transform.localScale = new Vector3(-1,1,1);
-		}
-		if (Input.GetKeyDown (UpKey) && isGround) {
-			rb.AddForce (new Vector2 (0, 2.5f), ForceMode2D.Impulse);
-			isGround = false;
-		}
+		vec.x = 0.02f;				
+		this.transform.localScale = new Vector3 (0.3f, 0.3f, 1);
 		vec += this.transform.position;
 		this.transform.position = vec;
+		if(isGround)
+			StartCoroutine(Anim.Move ());
+	}
+	void Left_Move_Func(){
+		Vector3	vec	= Vector3.zero;
+		vec.x = -0.02f;				
+		this.transform.localScale = new Vector3 (-0.3f, 0.3f, 1);
+		vec += this.transform.position;
+		this.transform.position = vec;
+		if(isGround)
+			StartCoroutine(Anim.Move ());
+	}
+	void Down_Move_Func(){
 	}
 	void Jab_Func(){
-		if (Input.GetKeyDown (JabKey))
-			Debug.Log ("弱攻撃！");
+		Debug.Log ("弱攻撃！");
 	}
 	void Strong_Func(){
-		if (Input.GetKeyDown (StrongKey))
-			Debug.Log ("強攻撃！");
+		Debug.Log ("強攻撃！");
 	}
 	void Jump_Func(){
-		if (Input.GetKeyDown (JumpKey) && isGround) {
-			rb.AddForce (new Vector2 (0, 3f), ForceMode2D.Impulse);
-			isGround=false;
-		}
+		if (!isGround)
+			return;
+		rb.AddForce (new Vector2 (0, 3f), ForceMode2D.Impulse);
+		isGround=false;
 	}
 	void Guard_Func(){
-		if (Input.GetKeyDown (GuardKey))
-			Debug.Log ("ガード！");
+		Debug.Log ("ガード！");
 	}
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Ground") {

@@ -45,12 +45,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BattleSystem\AnimController.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\Controller.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\WaitForAnimation.cs" />
      <Compile Include="Assets\Scripts\GameControll\AppControll.cs" />
      <Compile Include="Assets\Scripts\GameControll\BattleScene.cs" />
      <Compile Include="Assets\Scripts\GameControll\Interface\SceneInterface.cs" />
      <Compile Include="Assets\Scripts\GameControll\MenuScene.cs" />
      <Compile Include="Assets\Scripts\GameControll\TitleScene.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\AudioSourceController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\BlockController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\BrokenBlockController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\CameraController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\CoinController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\Demo.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\IntroCameraController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\LoadingController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\Loop.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\PointController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\SceneNameAttribute.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\StartController.cs" />
+     <Compile Include="Assets\UnityChan2D\Demo\Scripts\TimeController.cs" />
+     <Compile Include="Assets\UnityChan2D\Scripts\UnityChan2DController.cs" />
+     <None Include="Assets\UnityChan2D\Demo\Sounds\Voice\unity-chan_voice_list.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
