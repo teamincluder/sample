@@ -24,8 +24,10 @@ public class Controller : MonoBehaviour {
 	Rigidbody2D rb		= new Rigidbody2D();
 	/* is Ground */
 	bool isGround	= false;
+	bool isWaitDeathBlow = false;
 	[SerializeField]
 	AnimController Anim;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -43,23 +45,26 @@ public class Controller : MonoBehaviour {
 		}
 		if (Input.GetKey (DownKey)) {
 		}
-		if (Input.GetKeyDown (JabKey)) {
-			Jab_Func();
-		}
-		if (Input.GetKeyDown (StrongKey)) {
-			Strong_Func();
-		}
 		if (Input.GetKeyDown (GuardKey)) {
 			Guard_Func();
 		}
 		if (Input.GetKeyDown (JumpKey)) {
 			Jump_Func();
 		}
+		if (Input.GetKey (JabKey) && Input.GetKey (StrongKey)) {
+			StartCoroutine(Wait_Death_Blow());
+		}
+		else if (Input.GetKeyDown (JabKey)) {
+			Jab_Func();
+		}
+		else if (Input.GetKeyDown (StrongKey)) {
+			Strong_Func();
+		}
 	}
 	void Right_Move_Func(){
 		Vector3	vec	= Vector3.zero;
 		vec.x = 0.02f;				
-		this.transform.localScale = new Vector3 (0.3f, 0.3f, 1);
+		this.transform.localScale = new Vector3 (0.3f, 0.3f, 1);	
 		vec += this.transform.position;
 		this.transform.position = vec;
 		if(isGround)
@@ -76,13 +81,9 @@ public class Controller : MonoBehaviour {
 	}
 	void Down_Move_Func(){
 	}
-	void Jab_Func(){
-		Debug.Log ("弱攻撃！");
-	}
-	void Strong_Func(){
-		Debug.Log ("強攻撃！");
-	}
+
 	void Jump_Func(){
+		return;
 		if (!isGround)
 			return;
 		rb.AddForce (new Vector2 (0, 3f), ForceMode2D.Impulse);
@@ -91,6 +92,36 @@ public class Controller : MonoBehaviour {
 	void Guard_Func(){
 		Debug.Log ("ガード！");
 	}
+	void Death_Blow_Func(){
+		Debug.Log ("必殺技！！！！！");
+	}
+	void Jab_Func(){
+		Debug.Log ("弱攻撃！");
+	}
+	void Strong_Func(){
+		Debug.Log ("強攻撃！");
+	}
+
+	IEnumerator Wait_Death_Blow(){
+		if (isWaitDeathBlow)
+			yield break;
+		isWaitDeathBlow = true;
+		Death_Blow_Func ();
+		bool isJab = true;
+		bool isStrong = true;
+		while(true){
+			if(Input.GetKeyUp(JabKey))
+				isJab = false;
+			if(Input.GetKeyUp(StrongKey))
+				isStrong = false;
+			if(!isStrong && !isJab){
+				isWaitDeathBlow = false;
+				yield break;
+			}
+			yield return null;
+		}
+	}
+
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Ground") {
 			isGround = true;
