@@ -16,7 +16,7 @@ public class MenuScene : SceneInterface {
 	
 	public override void Next_Scene ()
 	{
-		this.manager.nowScene = new BattleScene (this.manager);
-		this.manager.Next_Scene ("Battle");
+		this.manager.nowScene = new TitleScene (this.manager);
+		this.manager.Next_Scene ("Title");
 	}
 }

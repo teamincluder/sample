@@ -3,8 +3,19 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Threading;
 public class AppControll : MonoBehaviour {
+	private static AppControll instance = null;
 	public SceneInterface nowScene;
-	// Use this for initialization
+	public static AppControll getInstance{
+		get{
+			return AppControll.instance;
+		}
+	}
+	void Awake(){
+		if (instance == null)
+			instance = this;
+		else
+			Destroy (this.gameObject);
+	}
 	void Start () {
 		DontDestroyOnLoad (this);
 		nowScene = new TitleScene (this);
