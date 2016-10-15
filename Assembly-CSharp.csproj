@@ -50,6 +50,12 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Key_List.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Move_Func.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\WaitForAnimation.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\StateController\Calc_State.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\StateController\End_State.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\StateController\Main_State.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\StateController\Start_State.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\StateController\State_Interface.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\StateController\State_Manager.cs" />
      <Compile Include="Assets\Scripts\Debug\Unit.cs" />
      <Compile Include="Assets\Scripts\GameControll\AppControll.cs" />
      <Compile Include="Assets\Scripts\GameControll\BattleScene.cs" />

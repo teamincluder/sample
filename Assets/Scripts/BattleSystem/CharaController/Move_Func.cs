@@ -3,8 +3,13 @@ using System.Collections;
 
 [RequireComponent (typeof (Rigidbody2D))]
 [RequireComponent (typeof (AnimController))]
+/*
+キャラコントローラーAPI部
+Animや剛体拾って動きを付ける部分
+実装部はKey_Controller
+*/
 public class Move_Func : MonoBehaviour {
-
+	Unit unit = new Unit();
 	bool isground = false;
 	AnimController anim;
 	Rigidbody2D rb;
@@ -31,7 +36,7 @@ public class Move_Func : MonoBehaviour {
 	}
 
 	public void downMove(){
-		Debug.Log ("しゃがむ");
+		unit.log ("しゃがむ");
 	}
 
 	public void jumpMove(){
@@ -43,19 +48,19 @@ public class Move_Func : MonoBehaviour {
 	}
 
 	public void guardMove(){
-		Debug.Log ("ガード！");
+		unit.log ("ガード！");
 	}
 
 	public void deathBlowMove(){
-		Debug.Log ("必殺技！！！！！");
+		unit.log ("必殺技！！！！！");
 	}
 
 	public void jabMove(){
-		Debug.Log ("弱攻撃！");
+		unit.log ("弱攻撃！");
 	}
 
 	public void strongMove(){
-		Debug.Log ("強攻撃！");
+		unit.log ("強攻撃！");
 	}
 		
 	void OnTriggerStay2D(Collider2D other){

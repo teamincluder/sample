@@ -3,34 +3,99 @@ using System.Collections;
 
 public class Key_List { 
 	/*Key Settings*/
-	public KeyCode leftkey	 	= new KeyCode();
-	public KeyCode upkey		= new KeyCode();
-	public KeyCode downkey 		= new KeyCode();
-	public KeyCode rightkey		= new KeyCode();
-	public KeyCode jabkey 		= new KeyCode();
-	public KeyCode guardkey		= new KeyCode();
-	public KeyCode jumpkey 		= new KeyCode();
-	public KeyCode strongkey	= new KeyCode();
+	private KeyCode leftkey	 	= new KeyCode();
+	private KeyCode upkey		= new KeyCode();
+	private KeyCode downkey 	= new KeyCode();
+	private KeyCode rightkey	= new KeyCode();
+	private KeyCode jabkey 		= new KeyCode();
+	private KeyCode guardkey	= new KeyCode();
+	private KeyCode jumpkey 	= new KeyCode();
+	private KeyCode strongkey	= new KeyCode();
+
+	public KeyCode left_Key{
+		get{
+			return leftkey;
+		}
+		set{
+			leftkey = value;
+		}
+	}
+	public KeyCode right_Key{
+		get{
+			return rightkey;
+		}
+		set{
+			rightkey = value;
+		}
+	}
+	public KeyCode up_Key{
+		get{
+			return upkey;
+		}
+		set{
+			upkey = value;
+		}
+	}
+	public KeyCode down_Key{
+		get{
+			return downkey;
+		}
+		set{
+			downkey = value;
+		}
+	}
+	public KeyCode jab_Key{
+		get{
+			return jabkey;
+		}
+		set{
+			jabkey = value;
+		}
+	}
+	public KeyCode strong_Key{
+		get{
+			return strongkey;
+		}
+		set{
+			strongkey = value;
+		}
+	}
+	public KeyCode jump_Key{
+		get{
+			return jumpkey;
+		}
+		set{
+			jumpkey = value;
+		}
+	}
+	public KeyCode guard_Key{
+		get{
+			return guardkey;
+		}
+		set{
+			guardkey = value;
+		}
+	}
 
 	public void init(bool isdebug = false){
 		if (!isdebug) {
-			leftkey 	= KeyCode.JoystickButton14;
-			upkey	 	= KeyCode.JoystickButton15;
-			downkey 	= KeyCode.JoystickButton16;
-			rightkey 	= KeyCode.JoystickButton13;
-			jabkey 		= KeyCode.JoystickButton1;
-			guardkey 	= KeyCode.JoystickButton3;
-			jumpkey 	= KeyCode.JoystickButton2;
-			strongkey 	= KeyCode.JoystickButton0;
+			left_Key 	= KeyCode.JoystickButton14;
+			up_Key	 	= KeyCode.JoystickButton15;
+			down_Key 	= KeyCode.JoystickButton16;
+			right_Key 	= KeyCode.JoystickButton13;
+			jab_Key 	= KeyCode.JoystickButton1;
+			guard_Key 	= KeyCode.JoystickButton3;
+			jump_Key 	= KeyCode.JoystickButton2;
+			strong_Key 	= KeyCode.JoystickButton0;
 		} else {
-			leftkey 	= KeyCode.A;
-			upkey 		= KeyCode.W;
-			rightkey 	= KeyCode.D;
-			downkey 	= KeyCode.S;
-			jabkey 		= KeyCode.J;
-			guardkey	= KeyCode.K;
-			jumpkey 	= KeyCode.L;
-			strongkey 	= KeyCode.H;
+			left_Key 	= KeyCode.A;
+			up_Key 		= KeyCode.W;
+			right_Key 	= KeyCode.D;
+			down_Key 	= KeyCode.S;
+			jab_Key 	= KeyCode.J;
+			guard_Key	= KeyCode.K;
+			jump_Key 	= KeyCode.L;
+			strong_Key 	= KeyCode.H;
 		}
 	}
 }
