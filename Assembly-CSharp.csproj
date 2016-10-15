@@ -46,7 +46,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BattleSystem\AnimController.cs" />
-     <Compile Include="Assets\Scripts\BattleSystem\Controller.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\KeyController.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\KeyList.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\WaitForAnimation.cs" />
      <Compile Include="Assets\Scripts\GameControll\AppControll.cs" />
      <Compile Include="Assets\Scripts\GameControll\BattleScene.cs" />
@@ -75,6 +76,10 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{1E3F15FB-9033-9703-9C78-8D10EFC3988E}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
