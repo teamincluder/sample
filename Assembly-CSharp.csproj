@@ -47,7 +47,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AnimController.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Key_Controller.cs" />
-     <Compile Include="Assets\Scripts\BattleSystem\CharaController\Key_List.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Move_Func.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\WaitForAnimation.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\Calc_State.cs" />
@@ -57,11 +56,13 @@
      <Compile Include="Assets\Scripts\BattleSystem\StateController\State_Interface.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\State_Manager.cs" />
      <Compile Include="Assets\Scripts\Debug\Unit.cs" />
-     <Compile Include="Assets\Scripts\GameControll\AppControll.cs" />
-     <Compile Include="Assets\Scripts\GameControll\BattleScene.cs" />
-     <Compile Include="Assets\Scripts\GameControll\Interface\SceneInterface.cs" />
-     <Compile Include="Assets\Scripts\GameControll\MenuScene.cs" />
-     <Compile Include="Assets\Scripts\GameControll\TitleScene.cs" />
+     <Compile Include="Assets\Scripts\GameControll\App_Controller.cs" />
+     <Compile Include="Assets\Scripts\GameControll\Battle_Scene.cs" />
+     <Compile Include="Assets\Scripts\GameControll\Interface\Scene_Interface.cs" />
+     <Compile Include="Assets\Scripts\GameControll\Menu_Scene.cs" />
+     <Compile Include="Assets\Scripts\GameControll\Title_Scene.cs" />
+     <Compile Include="Assets\Scripts\Key\Key_Click.cs" />
+     <Compile Include="Assets\Scripts\Key\Key_List.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\AudioSourceController.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\BlockController.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\BrokenBlockController.cs" />

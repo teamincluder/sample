@@ -11,7 +11,6 @@ using UniRx.Triggers;
 */
 public class Key_Controller : MonoBehaviour {
 	const bool 	DEBUGMODE = true;
-
 	Key_List 	playerkey = new Key_List();
 	Move_Func	movefunc ;
 
