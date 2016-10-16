@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class Title_Scene : Scene_Interface {
+﻿public class Title_Scene : Scene_Interface {
 
 	public Title_Scene(App_Controller manager):base(manager){
 	}
@@ -16,7 +13,7 @@ public class Title_Scene : Scene_Interface {
 
 	public override void nextScene ()
 	{
-		this.manager.nowScene = new Menu_Scene (this.manager);
+		this.manager.nextScene(new Menu_Scene (this.manager));
 	}
 		
 	public override void onClick ()

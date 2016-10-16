@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class Battle_Scene : Scene_Interface {
+﻿public class Battle_Scene : Scene_Interface {
 
 	public Battle_Scene(App_Controller manager):base(manager){
 	}

@@ -63,6 +63,8 @@
      <Compile Include="Assets\Scripts\GameControll\Title_Scene.cs" />
      <Compile Include="Assets\Scripts\Key\Key_Click.cs" />
      <Compile Include="Assets\Scripts\Key\Key_List.cs" />
+     <Compile Include="Assets\Scripts\UI\BackGround_Controller.cs" />
+     <Compile Include="Assets\Scripts\UI\UI_Controller.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\AudioSourceController.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\BlockController.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\BrokenBlockController.cs" />

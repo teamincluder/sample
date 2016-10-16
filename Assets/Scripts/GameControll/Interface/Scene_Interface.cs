@@ -1,4 +1,5 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using System.Collections;
 public abstract class Scene_Interface {
 	protected App_Controller manager;
 	public Scene_Interface(App_Controller manager)
