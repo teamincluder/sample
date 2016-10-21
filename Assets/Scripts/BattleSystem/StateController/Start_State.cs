@@ -5,17 +5,18 @@ public class Start_State : State_Interface {
 
 	public override void start ()
 	{
-
-		Debug.Log (this);
-		
+		UI_Controller.getInstance.startBattleScene ();
 	}
 	public override void update ()
 	{
-		//条件クリックしたら
-		nextState ();
 	}
 	public override void nextState ()
 	{
 		this.manager.nextState (new Main_State(this.manager));
+	}
+
+	public override void onClick ()
+	{
+		nextState ();
 	}
 }

@@ -2,16 +2,16 @@
 
 	public Battle_Scene(App_Controller manager):base(manager){
 	}
+
 	public override void start ()
 	{
-	}
-	public override void update ()
-	{
+		UI_Controller.getInstance.startBattleScene ();
 	}
 	public override void nextScene ()
 	{
 	}
 	public override void onClick ()
 	{
+		nextScene ();
 	}
 }

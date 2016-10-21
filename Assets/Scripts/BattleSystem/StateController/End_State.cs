@@ -6,12 +6,18 @@ public class End_State : State_Interface {
 
 	public override void start ()
 	{
-		Debug.Log (this);
+		UI_Controller.getInstance.endBattleScene ();
 	}
 	public override void update ()
 	{
 	}
 	public override void nextState ()
 	{
+		App_Controller.getInstance.nextScene (new Menu_Scene(App_Controller.getInstance),"Menu");
+	}
+
+	public override void onClick ()
+	{
+		nextState ();
 	}
 }

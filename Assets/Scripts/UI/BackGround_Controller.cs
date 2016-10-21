@@ -2,14 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 public class BackGround_Controller : MonoBehaviour {
-	Image background;
-	void Awake(){
-		background = GameObject.Find("BackGround").GetComponent<Image> ();
-	}
-
+	private Image background;
 	public void changeBg(string imgpath){
-		Debug.Log (imgpath);
-		var newimg = Resources.Load (imgpath) as Sprite;
-		background.sprite = newimg; 
+		if(background==null) background = GameObject.Find("BackGround").GetComponent<Image> ();
+		Texture2D newimg = Resources.Load (imgpath) as Texture2D;
+		background.sprite = Sprite.Create(newimg , new Rect(0,0,newimg.width,newimg.height) , Vector2.zero); 
 	}
 }

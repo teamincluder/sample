@@ -6,4 +6,5 @@
 	public abstract void start ();
 	public abstract void update();
 	public abstract void nextState ();
+	public abstract void onClick();
 }

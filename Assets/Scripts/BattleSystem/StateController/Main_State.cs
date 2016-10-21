@@ -6,19 +6,22 @@ public class Main_State : State_Interface {
 	}
 	public override void start ()
 	{
-		Debug.Log (this);
+		UI_Controller.getInstance.mainBattleScene ();
 	}
 
 	public override void update ()
 	{
-		Debug.Log ("キー判定");
-		nextState ();
+		Debug.Log ("計算処理");
 	}
 
 	public override void nextState ()
 	{
-		this.manager.nextState (new Calc_State(this.manager));
+		this.manager.nextState (new End_State(this.manager));
 	}
 
+	public override void onClick ()
+	{
+		nextState ();
+	}
 
 }

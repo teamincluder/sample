@@ -6,7 +6,6 @@ public class Calc_State : State_Interface {
 
 	public override void start ()
 	{
-		Debug.Log ("Calc");
 	}
 
 	public override void update ()
@@ -22,6 +21,9 @@ public class Calc_State : State_Interface {
 			this.manager.nextState (new End_State(this.manager));
 		else
 			this.manager.nextState (new Main_State(this.manager));
+	}
+	public override void onClick ()
+	{
 	}
 
 }
