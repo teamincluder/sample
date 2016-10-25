@@ -12,7 +12,6 @@ public class UI_Controller : MonoBehaviour {
 
 	private static UI_Controller instance;
 
-
 	void Awake () {
 		if (instance == null)
 			instance = this;

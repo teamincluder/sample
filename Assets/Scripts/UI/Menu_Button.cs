@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UniRx;
 using UniRx.Triggers;
+using UnityEngine.SceneManagement;
 public class Menu_Button : MonoBehaviour {
 	private const string STORY_IMG_PATH 			= "story";
 	private const string SELECTED_STORY_IMG_PATH 	= "select_story";
@@ -39,21 +40,39 @@ public class Menu_Button : MonoBehaviour {
 			.Where (_ => Input.GetKeyDown (list.up_Key))
 			.Subscribe (_=>
 				{
-					nowselect--;
-					changeImg();
-				});
+					if (SceneManager.GetActiveScene().name == "Menu")
+					{
+						nowselect--;
+						changeImg();
+					}
+				})
+			.AddTo(this);
 
 
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.down_Key))
 			.Subscribe (_=>
 				{
-					nowselect++;
-					changeImg();
-				});
+					if (SceneManager.GetActiveScene().name == "Menu")
+					{
+						nowselect++;
+						changeImg();
+					}
+				})
+			.AddTo(this);
+					
+					
+		this.UpdateAsObservable ()
+			.Where (_ =>Input.GetKeyDown (list.strong_Key))
+			.Subscribe (_ =>
+				{
+					if (SceneManager.GetActiveScene().name == "Menu")
+						nextScene();
+				})
+			.AddTo(this);
 	}
 
-	public void changeImg(){
+	private void changeImg(){
 		setObj ();
 		Image storyImg 		=	story.GetComponent	<Image>	();
 		Image battleImg 	=	battle.GetComponent	<Image>	();
@@ -81,5 +100,20 @@ public class Menu_Button : MonoBehaviour {
 		Texture2D img = Resources.Load (path)	as Texture2D;
 		return Sprite.Create (img,new Rect(0,0,img.width,img.height),Vector2.zero);
 	}
-
+		
+	private void nextScene(){			
+		
+		switch(nowselect)
+		{
+		case select.story:
+			Debug.Log("Story");
+			break;
+		case select.battle:
+			App_Controller.getInstance.nextScene(new Battle_Scene(App_Controller.getInstance),"Battle");
+			break;
+		case select.option:
+			Debug.Log("option");
+			break;
+		}
+	}
 }
