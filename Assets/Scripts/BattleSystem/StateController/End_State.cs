@@ -6,7 +6,7 @@ public class End_State : State_Interface {
 
 	public override void start ()
 	{
-		UI_Controller.getInstance.endBattleScene ();
+		UI_Controller.getInstance.endBattleScene ("win");
 	}
 	public override void update ()
 	{

@@ -16,8 +16,7 @@ public class Key_Controller : MonoBehaviour {
 
 	void Start () {
 		/*Keyの配列*/
-		Key_List 	playerkey	=	new Key_List();
-		playerkey.init (DEBUGMODE);
+		Key_List 	playerkey	=	new Key_List(DEBUGMODE);
 
 		/*実際に動作させる関数群*/
 		Move_Func 	movefunc 	=	this.GetComponent<Move_Func> ();

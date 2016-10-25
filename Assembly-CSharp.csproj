@@ -49,7 +49,6 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Key_Controller.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Move_Func.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\WaitForAnimation.cs" />
-     <Compile Include="Assets\Scripts\BattleSystem\StateController\Calc_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\End_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\Main_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\Start_State.cs" />
@@ -66,6 +65,7 @@
      <Compile Include="Assets\Scripts\Key\State_Key_Click.cs" />
      <Compile Include="Assets\Scripts\UI\BackGround_Controller.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Font.cs" />
+     <Compile Include="Assets\Scripts\UI\HP_Bar.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Button.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Controller.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\AudioSourceController.cs" />

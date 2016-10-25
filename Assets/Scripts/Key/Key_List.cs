@@ -77,7 +77,7 @@ public class Key_List {
 		}
 	}
 
-	public void init(bool isdebug = false){
+	public Key_List(bool isdebug = false){
 		if (!isdebug) {
 			left_Key 	= KeyCode.JoystickButton14;
 			up_Key	 	= KeyCode.JoystickButton15;

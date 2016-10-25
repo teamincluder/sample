@@ -4,10 +4,11 @@ using System.Collections;
 [RequireComponent(typeof(Menu_Button))]
 [RequireComponent(typeof(Battle_Font))]
 public class UI_Controller : MonoBehaviour {
+	/*画像パス*/
 	private const string TITLE_BG		=	"BG_01";
 	private const string MENU_BG		=	"BG_02";
+	/*テキストメッセージ*/
 	private const string START_MESSAGE 	=	"Click Start!";
-	private const string END_MESSAGE	=	"Click End!";
 
 	private static UI_Controller instance;
 
@@ -50,9 +51,9 @@ public class UI_Controller : MonoBehaviour {
 		Battle_Font bf = this.GetComponent<Battle_Font> ();
 		bf.isVisible (false);
 	}
-	public void endBattleScene(){
+	public void endBattleScene(string result){
 		Battle_Font bf = this.GetComponent<Battle_Font> ();
 		bf.isVisible (true);
-		bf.setMessage (END_MESSAGE);
+		bf.setMessage (result);
 	}
 }

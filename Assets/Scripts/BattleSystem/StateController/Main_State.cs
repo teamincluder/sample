@@ -21,7 +21,6 @@ public class Main_State : State_Interface {
 
 	public override void onClick ()
 	{
-		nextState ();
 	}
 
 }

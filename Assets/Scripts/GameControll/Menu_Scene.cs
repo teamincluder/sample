@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 public class Menu_Scene : Scene_Interface {
 
 	public Menu_Scene(App_Controller manager):base(manager){
@@ -15,6 +14,5 @@ public class Menu_Scene : Scene_Interface {
 
 	public override void onClick ()
 	{
-		nextScene ();
 	}
 }

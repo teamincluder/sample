@@ -5,7 +5,7 @@ using System.Threading;
 
 [RequireComponent(typeof(App_Key_Click))]
 public class App_Controller : MonoBehaviour {
-	
+	private const int FRAMERATE = 60;
 	private static App_Controller instance;
 	private Scene_Interface nowScene;
 
@@ -16,9 +16,11 @@ public class App_Controller : MonoBehaviour {
 	}
 	//シングルトン
 	void Awake(){
-		if (instance == null)	instance = this;
-		else 					Destroy (this.gameObject);
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = FRAMERATE;
+		if (instance == null)
+			instance = this;
+		else
+			Destroy (this.gameObject);
 	}
 
 
@@ -38,6 +40,7 @@ public class App_Controller : MonoBehaviour {
 			nowScene.start ();
 		}
 	}
+	/*LoadScene後は、次のフレームじゃないといじれないから１フレーム待機*/
 	private IEnumerator nextFrame(){
 		yield return null;
 		nowScene.start ();
