@@ -5,8 +5,8 @@ using System.Collections;
 [RequireComponent(typeof(Battle_Font))]
 public class UI_Controller : MonoBehaviour {
 	/*画像パス*/
-	private const string TITLE_BG		=	"BG_01";
-	private const string MENU_BG		=	"BG_02";
+	private const string TITLE_BG		=	"BackGround/Title_BG";
+	private const string MENU_BG		=	"BackGround/Menu_BG";
 	/*テキストメッセージ*/
 	private const string START_MESSAGE 	=	"Click Start!";
 

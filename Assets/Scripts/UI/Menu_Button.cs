@@ -5,12 +5,12 @@ using UniRx;
 using UniRx.Triggers;
 using UnityEngine.SceneManagement;
 public class Menu_Button : MonoBehaviour {
-	private const string STORY_IMG_PATH 			= "story";
-	private const string SELECTED_STORY_IMG_PATH 	= "select_story";
-	private const string BATTLE_IMG_PATH 			= "battle";
-	private const string SELECTED_BATTLE_IMG_PATH	= "select_battle";
-	private const string OPTION_IMG_PATH 			= "option";
-	private const string SELECTED_OPTION_IMG_PATH	= "select_option";
+	private const string STORY_IMG_PATH 			= "MenuButton/story";
+	private const string SELECTED_STORY_IMG_PATH 	= "MenuButton/select_story";
+	private const string BATTLE_IMG_PATH 			= "MenuButton/battle";
+	private const string SELECTED_BATTLE_IMG_PATH	= "MenuButton/select_battle";
+	private const string OPTION_IMG_PATH 			= "MenuButton/option";
+	private const string SELECTED_OPTION_IMG_PATH	= "MenuButton/select_option";
 
 	private GameObject story;
 	private GameObject battle;
@@ -42,7 +42,7 @@ public class Menu_Button : MonoBehaviour {
 				{
 					if (SceneManager.GetActiveScene().name == "Menu")
 					{
-						nowselect--;
+						upKey();
 						changeImg();
 					}
 				})
@@ -55,7 +55,7 @@ public class Menu_Button : MonoBehaviour {
 				{
 					if (SceneManager.GetActiveScene().name == "Menu")
 					{
-						nowselect++;
+						downKey();
 						changeImg();
 					}
 				})
@@ -70,6 +70,14 @@ public class Menu_Button : MonoBehaviour {
 						nextScene();
 				})
 			.AddTo(this);
+	}
+	private void downKey(){
+		if (nowselect != select.option)
+			nowselect++;
+	}
+	private void upKey(){
+		if (nowselect != select.story)
+			nowselect--;
 	}
 
 	private void changeImg(){

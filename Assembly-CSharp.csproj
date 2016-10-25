@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AnimController.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Key_Controller.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Move_Func.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\UI\BackGround_Controller.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Font.cs" />
      <Compile Include="Assets\Scripts\UI\HP_Bar.cs" />
+     <Compile Include="Assets\Scripts\UI\Logo.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Button.cs" />
      <Compile Include="Assets\Scripts\UI\UI_Controller.cs" />
      <Compile Include="Assets\UnityChan2D\Demo\Scripts\AudioSourceController.cs" />
