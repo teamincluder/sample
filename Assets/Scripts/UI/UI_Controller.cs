@@ -3,13 +3,14 @@ using System.Collections;
 [RequireComponent(typeof(BackGround_Controller))]
 [RequireComponent(typeof(Menu_Button))]
 [RequireComponent(typeof(Battle_Font))]
+[RequireComponent(typeof(HP_Bar))]
 public class UI_Controller : MonoBehaviour {
 	/*画像パス*/
 	private const string TITLE_BG		=	"BackGround/Title_BG";
 	private const string MENU_BG		=	"BackGround/Menu_BG";
+
 	/*テキストメッセージ*/
 	private const string START_MESSAGE 	=	"Click Start!";
-
 	private static UI_Controller instance;
 
 	void Awake () {

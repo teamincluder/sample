@@ -14,6 +14,7 @@
 		
 	public override void onClick ()
 	{
-		nextScene ();
+		if(Logo.getInstance.getVisible == false)
+			nextScene ();
 	}
 }

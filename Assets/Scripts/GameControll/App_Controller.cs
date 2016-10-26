@@ -5,6 +5,7 @@ using System.Threading;
 
 [RequireComponent(typeof(App_Key_Click))]
 public class App_Controller : MonoBehaviour {
+	
 	private const int FRAMERATE = 60;
 	private static App_Controller instance;
 	private Scene_Interface nowScene;
@@ -30,6 +31,7 @@ public class App_Controller : MonoBehaviour {
 		nowScene.start ();
 	}
 
+	/*次のシーンに移行*/
 	public void nextScene(Scene_Interface nextscene,string nextstr = ""){
 		this.nowScene = nextscene;
 		if (nextstr != "") {
