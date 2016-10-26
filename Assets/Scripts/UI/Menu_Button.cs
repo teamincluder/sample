@@ -35,7 +35,7 @@ public class Menu_Button : MonoBehaviour {
 		}
 	}
 	private void subscribe(){
-		Key_List list = new Key_List (true);
+		First_Key_List list = new First_Key_List (true);
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.up_Key))
 			.Subscribe (_=>

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Key_List { 
+public class Second_Key_List { 
 	/*Key Settings*/
 	private KeyCode leftkey	 	= new KeyCode();
 	private KeyCode upkey		= new KeyCode();
@@ -77,7 +77,7 @@ public class Key_List {
 		}
 	}
 
-	public Key_List(bool isdebug = false){
+	public Second_Key_List(bool isdebug = false){
 		if (!isdebug) {
 			left_Key 	= KeyCode.JoystickButton14;
 			up_Key	 	= KeyCode.JoystickButton15;

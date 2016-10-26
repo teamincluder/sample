@@ -11,7 +11,7 @@ public class Main_State : State_Interface {
 
 	public override void update ()
 	{
-		Debug.Log ("計算処理");
+		
 	}
 
 	public override void nextState ()
