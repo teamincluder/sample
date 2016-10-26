@@ -55,11 +55,8 @@
      <Compile Include="Assets\Scripts\BattleSystem\StateController\Start_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\State_Interface.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\StateController\State_Manager.cs" />
-     <Compile Include="Assets\Scripts\Collider\Death_Blow_Hit.cs" />
      <Compile Include="Assets\Scripts\Collider\Get_Hit.cs" />
-     <Compile Include="Assets\Scripts\Collider\Guard_Hit.cs" />
-     <Compile Include="Assets\Scripts\Collider\Jab_Hit.cs" />
-     <Compile Include="Assets\Scripts\Collider\Strong_Hit.cs" />
+     <Compile Include="Assets\Scripts\Collider\Trigger_Hit.cs" />
      <Compile Include="Assets\Scripts\Debug\Unit.cs" />
      <Compile Include="Assets\Scripts\GameControll\App_Controller.cs" />
      <Compile Include="Assets\Scripts\GameControll\Battle_Scene.cs" />
