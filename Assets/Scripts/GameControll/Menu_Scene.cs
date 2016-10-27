@@ -5,7 +5,7 @@ public class Menu_Scene : Scene_Interface {
 	}
 
 	public override void start (){
-		UI_Controller.getInstance.menuScene ();
+		Menu_UI_Controller.getInstance.menuScene ();
 	}
 	
 	public override void nextScene (){

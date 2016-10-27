@@ -4,7 +4,7 @@
 
 	public override void start ()
 	{
-		UI_Controller.getInstance.titleScene ();
+		Menu_UI_Controller.getInstance.titleScene ();
 	}
 
 	public override void nextScene ()

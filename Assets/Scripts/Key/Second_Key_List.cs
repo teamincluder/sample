@@ -1,82 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Second_Key_List { 
-	/*Key Settings*/
-	private KeyCode leftkey	 	= new KeyCode();
-	private KeyCode upkey		= new KeyCode();
-	private KeyCode downkey 	= new KeyCode();
-	private KeyCode rightkey	= new KeyCode();
-	private KeyCode jabkey 		= new KeyCode();
-	private KeyCode guardkey	= new KeyCode();
-	private KeyCode jumpkey 	= new KeyCode();
-	private KeyCode strongkey	= new KeyCode();
-
-	public KeyCode left_Key{
-		get{
-			return leftkey;
-		}
-		set{
-			leftkey = value;
-		}
-	}
-	public KeyCode right_Key{
-		get{
-			return rightkey;
-		}
-		set{
-			rightkey = value;
-		}
-	}
-	public KeyCode up_Key{
-		get{
-			return upkey;
-		}
-		set{
-			upkey = value;
-		}
-	}
-	public KeyCode down_Key{
-		get{
-			return downkey;
-		}
-		set{
-			downkey = value;
-		}
-	}
-	public KeyCode jab_Key{
-		get{
-			return jabkey;
-		}
-		set{
-			jabkey = value;
-		}
-	}
-	public KeyCode strong_Key{
-		get{
-			return strongkey;
-		}
-		set{
-			strongkey = value;
-		}
-	}
-	public KeyCode jump_Key{
-		get{
-			return jumpkey;
-		}
-		set{
-			jumpkey = value;
-		}
-	}
-	public KeyCode guard_Key{
-		get{
-			return guardkey;
-		}
-		set{
-			guardkey = value;
-		}
-	}
-
+public class Second_Key_List :Key_Interface{ 
 	public Second_Key_List(bool isdebug = false){
 		if (!isdebug) {
 			left_Key 	= KeyCode.JoystickButton14;
@@ -88,14 +12,14 @@ public class Second_Key_List {
 			jump_Key 	= KeyCode.JoystickButton2;
 			strong_Key 	= KeyCode.JoystickButton0;
 		} else {
-			left_Key 	= KeyCode.A;
-			up_Key 		= KeyCode.W;
-			right_Key 	= KeyCode.D;
-			down_Key 	= KeyCode.S;
-			jab_Key 	= KeyCode.J;
-			guard_Key	= KeyCode.K;
-			jump_Key 	= KeyCode.L;
-			strong_Key 	= KeyCode.H;
+			left_Key 	= KeyCode.LeftArrow;
+			up_Key 		= KeyCode.UpArrow;
+			right_Key 	= KeyCode.RightArrow;
+			down_Key 	= KeyCode.DownArrow;
+			jab_Key 	= KeyCode.U;
+			guard_Key	= KeyCode.I;
+			jump_Key 	= KeyCode.O;
+			strong_Key 	= KeyCode.Y;
 		}
 	}
 }

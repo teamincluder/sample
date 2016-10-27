@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 //終了処理
 public class End_State : State_Interface {
-	public End_State(State_Manager manager):base(manager){
+	private string result;
+	private float timer;
+	public End_State(State_Manager manager,string result):base(manager){
+		this.result = result;
 	}
 
 	public override void start ()
 	{
-		UI_Controller.getInstance.endBattleScene ("win");
+		Battle_UI_Controller.getInstance.endBattleScene (result);
+		this.manager.first_Manager.set_isMain	= false;
+		this.manager.second_Manager.set_isMain	= false;
 	}
 	public override void update ()
 	{
+		timer += Time.deltaTime;
 	}
 	public override void nextState ()
 	{
@@ -18,6 +24,7 @@ public class End_State : State_Interface {
 
 	public override void onClick ()
 	{
-		nextState ();
+		if(timer >= 0.5f)
+			nextState ();
 	}
 }

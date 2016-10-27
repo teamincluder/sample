@@ -6,7 +6,9 @@ public class Main_State : State_Interface {
 	}
 	public override void start ()
 	{
-		UI_Controller.getInstance.mainBattleScene ();
+		Battle_UI_Controller.getInstance.mainBattleScene ();
+		this.manager.first_Manager.set_isMain	= true;
+		this.manager.second_Manager.set_isMain	= true;
 	}
 
 	public override void update ()
@@ -16,7 +18,6 @@ public class Main_State : State_Interface {
 
 	public override void nextState ()
 	{
-		this.manager.nextState (new End_State(this.manager));
 	}
 
 	public override void onClick ()

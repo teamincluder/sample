@@ -5,7 +5,9 @@ public class Start_State : State_Interface {
 
 	public override void start ()
 	{
-		UI_Controller.getInstance.startBattleScene ();
+		Battle_UI_Controller.getInstance.startBattleScene ();
+		this.manager.first_Manager.set_isMain	= false;
+		this.manager.second_Manager.set_isMain	= false;
 	}
 	public override void update ()
 	{

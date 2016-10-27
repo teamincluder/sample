@@ -5,7 +5,6 @@
 
 	public override void start ()
 	{
-		UI_Controller.getInstance.startBattleScene ();
 	}
 	public override void nextScene ()
 	{
