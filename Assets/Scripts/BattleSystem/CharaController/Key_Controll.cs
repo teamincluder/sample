@@ -23,14 +23,22 @@ public class Key_Controll: MonoBehaviour {
 	private user playing = user.first;
 	[SerializeField]
 	private bool ismain = false;
-	public bool set_isMain{
+	public bool set_IsMain{
 		set{
 			ismain = value;
 		}
 	}
+
 	/*切り替えできるようにインターフェイスを変数にしとく*/
 	private Key_Interface keylist;
 	private Move_Func_InterFace move;
+
+	public void set_user(bool isfirst){
+		if (isfirst)
+			playing	=	user.first;
+		else
+			playing	=	user.second;
+	}
 
 	void Awake(){
 		guardfunc 		=	getTriggerHit (GUARD_PATH);
@@ -41,12 +49,12 @@ public class Key_Controll: MonoBehaviour {
 		if (playing == user.first) {
 			this.tag = jabfunc.first_Tag;
 			move = this.gameObject.AddComponent<First_Move_Func> ();
-			keylist = new First_Key_List (true);
+			keylist = new First_Key_List ();
 			triggerInit (1);
 		} else {
 			this.tag = jabfunc.second_Tag;
 			move = this.gameObject.AddComponent<Second_Move_Func> ();
-			keylist = new Second_Key_List (true);
+			keylist = new Second_Key_List ();
 			triggerInit (2);
 		}
 	}
@@ -55,7 +63,7 @@ public class Key_Controll: MonoBehaviour {
 		
 		/*ガード処理*/
 		this.UpdateAsObservable ()
-			.Where (_ =>ismain)
+			.Where (_ => ismain)
 			.Where (_ => Input.GetKey(keylist.guard_Key))
 			.Where (_ => guardfunc.is_Hit)
 			.Subscribe (_ => 
@@ -65,8 +73,8 @@ public class Key_Controll: MonoBehaviour {
 
 		/*弱攻撃処理*/
 		this.UpdateAsObservable()
-			.Where (_ =>ismain)
-			.Where (_ =>!(Input.GetKey(keylist.strong_Key)))
+			.Where (_ => ismain)
+			.Where (_ => !(Input.GetKey(keylist.strong_Key)))
 			.Where (_ => Input.GetKeyDown(keylist.jab_Key))
 			.Where (_ => jabfunc.is_Hit)
 			.Subscribe(_ =>
@@ -76,9 +84,9 @@ public class Key_Controll: MonoBehaviour {
 
 		/*強攻撃処理*/
 		this.UpdateAsObservable ()
-			.Where (_ =>ismain)
-			.Where (_ =>!(Input.GetKey(keylist.jab_Key)))
-			.Where (_=>Input.GetKeyDown(keylist.strong_Key))
+			.Where (_ => ismain)
+			.Where (_ => !(Input.GetKey(keylist.jab_Key)))
+			.Where (_ => Input.GetKeyDown(keylist.strong_Key))
 			.Where (_ => strongfunc.is_Hit)
 			.Subscribe (_ => 
 				{
@@ -87,10 +95,10 @@ public class Key_Controll: MonoBehaviour {
 		
 		/*必殺技処理*/
 		this.UpdateAsObservable ()
-			.Where (_ =>ismain)
-			.Where (_ =>Input.GetKeyDown(keylist.jab_Key))
-			.Where (_ =>Input.GetKeyDown(keylist.strong_Key))
-			.Where (_ =>deathblowfunc.is_Hit)
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyDown(keylist.jab_Key))
+			.Where (_ => Input.GetKeyDown(keylist.strong_Key))
+			.Where (_ => deathblowfunc.is_Hit)
 			.Subscribe (_=>
 				{
 					move.deathBlowMove();
@@ -98,8 +106,8 @@ public class Key_Controll: MonoBehaviour {
 		
 		/*左移動*/
 		this.UpdateAsObservable()
-			.Where (_ =>ismain)
-			.Where (_=>Input.GetKey(keylist.left_Key))
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKey(keylist.left_Key))
 			.Subscribe (_=>
 				{
 					move.leftMove();
@@ -107,8 +115,8 @@ public class Key_Controll: MonoBehaviour {
 
 		/*右移動*/
 		this.UpdateAsObservable()
-			.Where (_ =>ismain)
-			.Where (_=>Input.GetKey(keylist.right_Key))
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKey(keylist.right_Key))
 			.Subscribe (_=>
 				{
 					move.rightMove();
@@ -116,8 +124,8 @@ public class Key_Controll: MonoBehaviour {
 
 		/*ジャンプ*/
 		this.UpdateAsObservable()
-			.Where (_ =>ismain)
-			.Where (_=>Input.GetKeyDown(keylist.up_Key))
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyDown(keylist.up_Key))
 			.Subscribe (_=>
 				{
 					move.jumpMove();
@@ -125,8 +133,8 @@ public class Key_Controll: MonoBehaviour {
 
 		/*ジャンプ*/
 		this.UpdateAsObservable()
-			.Where (_ =>ismain)
-			.Where (_=>Input.GetKeyDown(keylist.jump_Key))
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyDown(keylist.jump_Key))
 			.Subscribe (_=>
 				{
 					move.jumpMove();
@@ -134,8 +142,8 @@ public class Key_Controll: MonoBehaviour {
 
 		/*しゃがみ*/
 		this.UpdateAsObservable()
-			.Where (_ =>ismain)
-			.Where (_=>Input.GetKeyDown(keylist.down_Key))
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyDown(keylist.down_Key))
 			.Subscribe (_=>
 				{
 					move.downMove();

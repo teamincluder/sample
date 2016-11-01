@@ -9,9 +9,15 @@ public class Menu_Scene : Scene_Interface {
 	}
 	
 	public override void nextScene (){
-		this.manager.nextScene (new Battle_Scene(this.manager),"Battle");
+
+		/*
+		 	分岐だるかったのでとりあえずMenu_Buttonに持たせてます
+		*/
 	}
 
 	public override void onClick (){
+		/*
+			同上
+		*/
 	}
 }

@@ -42,7 +42,7 @@ public class Menu_Button : MonoBehaviour {
 
 	/*オブザーバ購読*/
 	private void subscribe(){
-		First_Key_List list = new First_Key_List (true);
+		First_Key_List list = new First_Key_List ();
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.up_Key))
 			.Subscribe (_=>
@@ -64,7 +64,7 @@ public class Menu_Button : MonoBehaviour {
 					
 					
 		this.UpdateAsObservable ()
-			.Where (_ =>Input.GetKeyDown (list.strong_Key))
+			.Where (_ =>Input.GetKeyDown (list.jab_Key))
 			.Subscribe (_ =>
 				{
 					nextScene();
@@ -91,7 +91,7 @@ public class Menu_Button : MonoBehaviour {
 			Debug.Log("Story");
 			break;
 		case select.battle:
-			App_Controller.getInstance.nextScene(new Battle_Scene(App_Controller.getInstance),"Battle");
+			App_Controller.getInstance.nextScene(new Start_Battle_Scene(App_Controller.getInstance),"Battle");
 			break;
 		case select.option:
 			Debug.Log("option");
