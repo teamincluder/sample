@@ -7,7 +7,8 @@ using System.Collections;
 	実装部はKey_Controller
 */
 public class First_Move_Func :Move_Func_InterFace {
-	Rigidbody2D rb;
+	Rigidbody2D	rb;
+	private bool isground	=	false;
 	private void Awake(){
 		rb 	=	this.GetComponent<Rigidbody2D>();
 	}
@@ -54,4 +55,6 @@ public class First_Move_Func :Move_Func_InterFace {
 		Debug.Log ("death");
 		HP_Controller.getInstance.firstDeathBlow ();
 	}
+
 }
+
