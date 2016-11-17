@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Threading;
 
-[RequireComponent(typeof(Key_Click))]
+[RequireComponent(typeof(App_Key_Click))]
 public class App_Controller : MonoBehaviour {
-	private static App_Controller instance = null;
+	
+	private const int FRAMERATE = 60;
+	private static App_Controller instance;
 	private Scene_Interface nowScene;
-	[SerializeField]
-	private UI_Controller ui;
+
 	public static App_Controller getInstance{
 		get{
 			return App_Controller.instance;
@@ -16,30 +17,34 @@ public class App_Controller : MonoBehaviour {
 	}
 	//シングルトン
 	void Awake(){
+		Application.targetFrameRate = FRAMERATE;
 		if (instance == null)
 			instance = this;
 		else
 			Destroy (this.gameObject);
 	}
 
+
 	void Start () {
 		DontDestroyOnLoad (this);
-		nowScene = new Title_Scene (this);
+		nowScene = new Title_Scene (App_Controller.getInstance);
 		nowScene.start ();
-		ui.init ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		nowScene.update ();
 	}
 
+	/*次のシーンに移行*/
 	public void nextScene(Scene_Interface nextscene,string nextstr = ""){
 		this.nowScene = nextscene;
 		if (nextstr != "") {
 			SceneManager.LoadScene (nextstr);
-			Thread.Sleep (100);
+			StartCoroutine (nextFrame ());
+		} 
+		else {
+			nowScene.start ();
 		}
+	}
+	/*LoadScene後は、次のフレームじゃないといじれないから１フレーム待機*/
+	private IEnumerator nextFrame(){
+		yield return null;
 		nowScene.start ();
 	}
 	public void onClick(){
