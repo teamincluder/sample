@@ -8,12 +8,12 @@ public class Controll_InterFace : MonoBehaviour {
 	private const string FIRST_KEY_CONTROLLER	=	"1P";
 	private const string SECOND_KEY_CONTROLLER	=	"2P";
 
+
 	private Key_Controll 	first;
 	private Key_Controll 	second;
 	private AI_Controller	ai;
 
 	private bool pvp	=	false;
-
 
 	public static Controll_InterFace get_Instance{
 		get{
@@ -27,14 +27,17 @@ public class Controll_InterFace : MonoBehaviour {
 			instance	=	this;
 		else
 			Destroy (this.gameObject);
-		
-		first	=	GameObject.Find (FIRST_KEY_CONTROLLER).GetComponent<Key_Controll> ();
+		GameObject 	firstObj	= 	GameObject.Find (FIRST_KEY_CONTROLLER);
+		firstObj.tag 			=	TagList.getInstance.firstTag;
+		first					=	firstObj.GetComponent<Key_Controll> ();
+		GameObject	secondObj	=	GameObject.Find (SECOND_KEY_CONTROLLER);
+		secondObj.tag 			=	TagList.getInstance.secondTag;
 		if (pvp) {
-			second	=	GameObject.Find (SECOND_KEY_CONTROLLER).AddComponent<Key_Controll> ();
+			second	=	secondObj.AddComponent<Key_Controll> ();
 			second.set_user (false);
 		} 
 		else {
-			ai =	GameObject.Find	(SECOND_KEY_CONTROLLER).AddComponent<AI_Controller> ();
+			ai 		=	secondObj.AddComponent<AI_Controller> ();
 		}
 	}
 

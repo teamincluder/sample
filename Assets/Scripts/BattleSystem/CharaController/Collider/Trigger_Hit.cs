@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+[RequireComponent(typeof(BoxCollider2D))]
 public class Trigger_Hit : MonoBehaviour {
 	private bool ishit = false;
-	private const string FIRST_TAG_NAME		= "first";
-	private const string SECOND_TAG_NAME	= "second";
 	private int usernumber = 0;
 	public int user_Number{
 		set{
@@ -17,19 +15,7 @@ public class Trigger_Hit : MonoBehaviour {
 			return ishit;
 		}
 	}
-
-	public string first_Tag{
-		get{
-			return FIRST_TAG_NAME;
-		}
-	}
-
-	public string second_Tag{
-		get{
-			return SECOND_TAG_NAME;
-		}
-	}
-
+		
 	void OnTriggerEnter2D(Collider2D other){
 		if (checkTag(other.tag))
 			ishit = true;
@@ -48,11 +34,11 @@ public class Trigger_Hit : MonoBehaviour {
 		switch (usernumber) 
 		{
 		case 1:
-			if (other == SECOND_TAG_NAME)
+			if (other == TagList.getInstance.secondTag)
 				result = true;
 			break;
 		case 2:
-			if (other == FIRST_TAG_NAME)
+			if (other == TagList.getInstance.firstTag)
 				result =true;
 			break;
 		}

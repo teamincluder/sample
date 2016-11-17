@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Attack_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Move_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AnimController.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\TagList.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\Trigger_Hit.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Controll_InterFace.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\First_Move_Func.cs" />

@@ -6,10 +6,10 @@ using UniRx.Triggers;
 [RequireComponent (typeof (Rigidbody2D))]
 public class Key_Controll: MonoBehaviour {
 	/*Find用パス*/
-	private const string GUARD_PATH			=	"Guard";
-	private const string JAB_PATH 			=	"Jab";
-	private const string STRONG_PATH 		= 	"Strong";
-	private const string DEATH_BLOW_PATH	= 	"DeathBlow";
+	private const string GUARD_PATH			=	"Triggers/Guard";
+	private const string JAB_PATH 			=	"Triggers/Jab";
+	private const string STRONG_PATH 		= 	"Triggers/Strong";
+	private const string DEATH_BLOW_PATH	= 	"Triggers/DeathBlow";
 
 	/*Trigger取得クラス*/
 	private Trigger_Hit guardfunc;
@@ -47,12 +47,10 @@ public class Key_Controll: MonoBehaviour {
 		deathblowfunc	=	getTriggerHit (DEATH_BLOW_PATH);
 
 		if (playing == user.first) {
-			this.tag = jabfunc.first_Tag;
 			move = this.gameObject.AddComponent<First_Move_Func> ();
-			keylist = new First_Key_List ();
+			keylist = new First_Key_List (true);
 			triggerInit (1);
 		} else {
-			this.tag = jabfunc.second_Tag;
 			move = this.gameObject.AddComponent<Second_Move_Func> ();
 			keylist = new Second_Key_List ();
 			triggerInit (2);
