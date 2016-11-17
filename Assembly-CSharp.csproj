@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\Key\Second_Key_List.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_Font.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_HP_Bar.cs" />
+     <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_Timer.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_UI_Controller.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Scene\Logo.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Scene\Menu_BackGround.cs" />
