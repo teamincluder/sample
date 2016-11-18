@@ -4,24 +4,12 @@ using UniRx;
 using UniRx.Triggers;
 
 [RequireComponent (typeof (Rigidbody2D))]
+[RequireComponent(typeof(Trigger_Interface))]
 public class Key_Controll: MonoBehaviour {
-	/*Find用パス*/
-	private const string GUARD_PATH			=	"Triggers/Guard";
-	private const string JAB_PATH 			=	"Triggers/Jab";
-	private const string STRONG_PATH 		= 	"Triggers/Strong";
-	private const string DEATH_BLOW_PATH	= 	"Triggers/DeathBlow";
-
-	/*Trigger取得クラス*/
-	private Trigger_Hit guardfunc;
-	private Trigger_Hit jabfunc;
-	private Trigger_Hit strongfunc;
-	private Trigger_Hit deathblowfunc;
-
 	/*どっちのコントローラか判別用*/
 	private enum user{first,second};
 	[SerializeField]
 	private user playing = user.first;
-	[SerializeField]
 	private bool ismain = false;
 	public bool set_IsMain{
 		set{
@@ -29,9 +17,12 @@ public class Key_Controll: MonoBehaviour {
 		}
 	}
 
+	private Trigger_Interface triggers;
+
 	/*切り替えできるようにインターフェイスを変数にしとく*/
 	private Key_Interface keylist;
 	private Move_Func_InterFace move;
+
 
 	public void set_user(bool isfirst){
 		if (isfirst)
@@ -41,19 +32,15 @@ public class Key_Controll: MonoBehaviour {
 	}
 
 	void Awake(){
-		guardfunc 		=	getTriggerHit (GUARD_PATH);
-		jabfunc 		=	getTriggerHit (JAB_PATH);
-		strongfunc		=	getTriggerHit (STRONG_PATH);
-		deathblowfunc	=	getTriggerHit (DEATH_BLOW_PATH);
-
+		if (triggers == null) triggers = this.GetComponent<Trigger_Interface> ();
 		if (playing == user.first) {
 			move = this.gameObject.AddComponent<First_Move_Func> ();
 			keylist = new First_Key_List (true);
-			triggerInit (1);
+			triggers.init (1);
 		} else {
 			move = this.gameObject.AddComponent<Second_Move_Func> ();
 			keylist = new Second_Key_List ();
-			triggerInit (2);
+			triggers.init (2);
 		}
 	}
 
@@ -63,7 +50,7 @@ public class Key_Controll: MonoBehaviour {
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
 			.Where (_ => Input.GetKey(keylist.guard_Key))
-			.Where (_ => guardfunc.is_Hit)
+			.Where (_ => triggers.guard_Hit)
 			.Subscribe (_ => 
 				{
 					move.guardMove();
@@ -74,7 +61,7 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => ismain)
 			.Where (_ => !(Input.GetKey(keylist.strong_Key)))
 			.Where (_ => Input.GetKeyDown(keylist.jab_Key))
-			.Where (_ => jabfunc.is_Hit)
+			.Where (_ => triggers.jab_Hit)
 			.Subscribe(_ =>
 				{
 					move.jabMove();
@@ -85,7 +72,7 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => ismain)
 			.Where (_ => !(Input.GetKey(keylist.jab_Key)))
 			.Where (_ => Input.GetKeyDown(keylist.strong_Key))
-			.Where (_ => strongfunc.is_Hit)
+			.Where (_ => triggers.strong_Hit)
 			.Subscribe (_ => 
 				{
 					move.strongMove();
@@ -96,7 +83,7 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => ismain)
 			.Where (_ => Input.GetKeyDown(keylist.jab_Key))
 			.Where (_ => Input.GetKeyDown(keylist.strong_Key))
-			.Where (_ => deathblowfunc.is_Hit)
+			.Where (_ => triggers.deathblow_Hit)
 			.Subscribe (_=>
 				{
 					move.deathBlowMove();
@@ -147,19 +134,5 @@ public class Key_Controll: MonoBehaviour {
 					move.downMove();
 				});
 
-	}
-		
-	/*コンポーネント取得*/
-	private Trigger_Hit getTriggerHit(string path){
-		GameObject target = this.gameObject.transform.FindChild (path).gameObject;
-		Trigger_Hit value = target.GetComponent<Trigger_Hit> ();
-		return value;
-	}
-
-	private void triggerInit(int num){
-		guardfunc.user_Number		= num;
-		jabfunc.user_Number 		= num;
-		strongfunc.user_Number		= num;
-		deathblowfunc.user_Number	= num;
 	}
 }

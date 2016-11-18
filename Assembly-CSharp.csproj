@@ -48,10 +48,13 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\AI_Controller.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\AI_State_Interface.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Attack_State.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Guard_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Move_State.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Stay_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AnimController.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\TagList.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\Trigger_Hit.cs" />
+     <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\Trigger_Interface.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Controll_InterFace.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\First_Move_Func.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\HP_Controller.cs" />

@@ -5,6 +5,7 @@ public abstract class AI_State_Interface {
 	protected Transform mine;
 	protected bool 		ismainfunc 	= 	false;
 	protected float 	timer 		= 	0f;
+	protected float		near		=	2.0f;
 
 	public AI_State_Interface(AI_Controller manager){
 		this.manager = manager;
@@ -13,7 +14,30 @@ public abstract class AI_State_Interface {
 		if (mine == null)
 			mine	= this.manager.transform;
 	}
-
+	public float dist_X{
+		get{
+			float distx = target.position.x - mine.position.x;
+			if (distx < 0)
+				distx = -distx;
+			return distx;
+		}
+	}
+	public float dist_Y{
+		get{
+			float disty	= target.position.y - mine.position.y;
+			if (disty < 0)
+				disty = -disty;
+			return disty;
+		}
+	}
+	public bool enemyIsRight{
+		get{
+			return target.position.x > mine.position.x;
+		}
+	}
+	public void timeCount(){
+		timer -= Time.deltaTime;
+	}
 	public abstract void start ();
 	public abstract void update();
 	public abstract void changeState();

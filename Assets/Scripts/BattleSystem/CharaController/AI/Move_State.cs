@@ -9,12 +9,10 @@ public class Move_State : AI_State_Interface {
 	public override void update ()
 	{
 		float dist = Vector3.Distance (target.position, mine.position);
-		if (dist <= 2f)
+		if (dist_X <= near)
 			changeState ();
-		else if (target.position.x < mine.position.x && timer <= 0)
-			move (false);
-		else if (mine.position.x < target.position.x && timer <= 0)
-			move (true);
+		else if (timer <= 0)
+			move ();
 		else
 			timer -= Time.deltaTime;
 			
@@ -25,15 +23,14 @@ public class Move_State : AI_State_Interface {
 		this.manager.changeState (new Attack_State(this.manager));
 	}
 
-	private void move(bool isRight){
+	private void move(){
 		if (ismainfunc)
 			return;
 		ismainfunc = true;
-		Second_Move_Func movefunc = this.manager.move_Func;
-		if (isRight)
-			movefunc.rightMove ();
+		if (enemyIsRight)
+			this.manager.move_Func.rightMove ();
 		else
-			movefunc.leftMove ();
+			this.manager.move_Func.leftMove ();
 		timer = Random.Range (0.01f,0.05f);
 		ismainfunc = false;
 	}

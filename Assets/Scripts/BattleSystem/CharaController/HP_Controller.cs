@@ -17,9 +17,12 @@ public class HP_Controller : MonoBehaviour {
 	private const float DAMAGE_STRONG		=	10f;
 	private const float DAMAGE_DEATHBLOW	=	20f;
 
+	/*ガード*/
+	private const float GUARD 				=	3f;
+
 	/*ライフ*/
-	private float firsthp 	= 100;
-	private float secondhp	= 100;
+	private float firsthp 	= 100f;
+	private float secondhp	= 100f;
 
 	/*UI*/
 	private Battle_HP_Bar hpbar;

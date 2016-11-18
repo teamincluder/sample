@@ -1,24 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
-
 public class Attack_State : AI_State_Interface {
 	public Attack_State(AI_Controller manager):base(manager){
 		
 	}
 
-	public override void start ()
-	{
+	public override void start (){
 	}
 
 	public override void update ()
 	{
-		float dist = Vector3.Distance (target.position, mine.position);
-		if (dist >= 2f)
+		if (dist_X >= near) {
 			changeState ();
-		else if (timer <= 0)
+		} else if (timer <= 0)
 			attack ();
 		else
-			timer -= Time.deltaTime;
+			timeCount ();
 			
 	}
 
@@ -33,14 +29,14 @@ public class Attack_State : AI_State_Interface {
 		ismainfunc = true;
 		Second_Move_Func attack = this.manager.move_Func;
 		int result = Random.Range (0,10);
-		if (result <= 5)
+		if (result <= 5 && this.manager.get_Triggers.jab_Hit)
 			attack.jabMove ();
-		else if (result != 9)
+		else if (result != 9 && this.manager.get_Triggers.strong_Hit)
 			attack.strongMove ();
-		else
+		else if (this.manager.get_Triggers.deathblow_Hit) {
 			attack.deathBlowMove ();
+		}
 		timer 		= Random.Range (0.2f,1.2f);
 		ismainfunc	= false;
 	}
-
 }
