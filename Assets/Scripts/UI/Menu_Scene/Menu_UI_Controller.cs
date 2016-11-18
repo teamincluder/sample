@@ -7,6 +7,9 @@ public class Menu_UI_Controller : MonoBehaviour {
 	private const string TITLE_BG		=	"BG/Title_BG";
 	private const string MENU_BG		=	"BG/Menu_BG";
 
+	private Menu_BackGround	menubackground;
+	private Menu_Button		menubutton;
+
 	private static Menu_UI_Controller instance;
 
 	void Awake () {
@@ -14,6 +17,8 @@ public class Menu_UI_Controller : MonoBehaviour {
 			instance = this;
 		else
 			Destroy (this.gameObject);
+		if (menubackground 	==	null)	menubackground	=	this.GetComponent<Menu_BackGround> ();
+		if (menubutton		==	null)	menubutton		=	this.GetComponent<Menu_Button>();
 	}
 
 	public static Menu_UI_Controller getInstance{
@@ -22,18 +27,14 @@ public class Menu_UI_Controller : MonoBehaviour {
 		}
 	}
 
-	public void titleScene(){
-		Menu_BackGround bg = this.GetComponent<Menu_BackGround> ();
-		bg.changeBg (TITLE_BG);
-		Menu_Button mb	=	this.GetComponent<Menu_Button> ();
-		mb.isVisible (false);
+	public void titleScene(){		
+		menubackground.changeBg (TITLE_BG);
+		menubutton.isVisible (false);
 	}
 
 	public void menuScene(){
-		Menu_BackGround bg = this.GetComponent<Menu_BackGround> ();
-		bg.changeBg (MENU_BG);
-		Menu_Button mb	=	this.GetComponent<Menu_Button> ();
-		mb.isVisible (true);
+		menubackground.changeBg (MENU_BG);
+		menubutton.isVisible (true);
 		//Logo.getInstance.mainScene ();
 	}
 }

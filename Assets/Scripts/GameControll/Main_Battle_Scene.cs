@@ -10,7 +10,9 @@ public class Main_Battle_Scene : Scene_Interface{
 	}
 
 	public override void nextScene (){
-		this.manager.nextScene (new Main_Battle_Scene (this.manager));
+		/*
+			End_Battle_Checkerに持たせてる
+		*/
 	}
 
 	public override void onClick (){

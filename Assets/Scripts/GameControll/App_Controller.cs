@@ -15,6 +15,7 @@ public class App_Controller : MonoBehaviour {
 			return App_Controller.instance;
 		}
 	}
+
 	//シングルトン
 	void Awake(){
 		Application.targetFrameRate = FRAMERATE;
@@ -42,11 +43,13 @@ public class App_Controller : MonoBehaviour {
 			nowScene.start ();
 		}
 	}
+
 	/*LoadScene後は、次のフレームじゃないといじれないから１フレーム待機*/
 	private IEnumerator nextFrame(){
 		yield return null;
 		nowScene.start ();
 	}
+
 	public void onClick(){
 		nowScene.onClick ();
 	}

@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\WaitForAnimation.cs" />
      <Compile Include="Assets\Scripts\Debug\Unit.cs" />
      <Compile Include="Assets\Scripts\GameControll\App_Controller.cs" />
+     <Compile Include="Assets\Scripts\GameControll\End_Battle_Checker.cs" />
      <Compile Include="Assets\Scripts\GameControll\End_Battle_Scene.cs" />
      <Compile Include="Assets\Scripts\GameControll\Interface\Scene_Interface.cs" />
      <Compile Include="Assets\Scripts\GameControll\Main_Battle_Scene.cs" />

@@ -6,10 +6,16 @@ using System.Collections;
 public class Battle_UI_Controller : MonoBehaviour {
 
 	/*テキストメッセージ*/
-	private const string START_MESSAGE 	=	"Click Start!";
+	private	const	string	START_MESSAGE 	=	"Click Start!";
+
+	/*バトル時間*/
+	[SerializeField]
+	private int	BATTLE_TIME;
+
+	private Battle_Font		battlefont;
+	private Battle_Timer	battletimer;
 
 	private static Battle_UI_Controller instance;
-
 	public static Battle_UI_Controller getInstance{
 		get{
 			return instance;
@@ -21,27 +27,24 @@ public class Battle_UI_Controller : MonoBehaviour {
 			instance = this;
 		else
 			Destroy (this.gameObject);
+		if(battlefont	== null)	battlefont	=	this.GetComponent<Battle_Font> ();
+		if(battletimer	== null)	battletimer	=	this.GetComponent<Battle_Timer> ();
 	}
 
 	public void startBattleScene(){
-		Battle_Font		bf	= this.GetComponent<Battle_Font> ();
-		bf.isVisible (true);
-		bf.setMessage (START_MESSAGE);
-		Battle_Timer	bt	= this.GetComponent<Battle_Timer> ();
-		bt.isMain (false);
+		battlefont.isVisible (true);
+		battlefont.setMessage (START_MESSAGE);
+		battletimer.setTime (BATTLE_TIME);
+		battletimer.isMain (false);
 	}
 	public void mainBattleScene(){
-		Battle_Font bf = this.GetComponent<Battle_Font> ();
-		bf.isVisible (true);
-		bf.setMessage ("Main");
-		Battle_Timer	bt	= this.GetComponent<Battle_Timer> ();
-		bt.isMain (true);
+		battlefont.isVisible (true);
+		battlefont.setMessage ("Main");
+		battletimer.isMain (true);
 	}
 	public void endBattleScene(string result){
-		Battle_Font bf = this.GetComponent<Battle_Font> ();
-		bf.isVisible (true);
-		bf.setMessage (result);
-		Battle_Timer	bt	= this.GetComponent<Battle_Timer> ();
-		bt.isMain (false);
+		battlefont.isVisible (true);
+		battlefont.setMessage (result);
+		battletimer.isMain (false);
 	}
 }

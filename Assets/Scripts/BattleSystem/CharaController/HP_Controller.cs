@@ -66,14 +66,14 @@ public class HP_Controller : MonoBehaviour {
 			secondhp -= damage;
 			hpbar.secondImgDraw (secondhp);
 			if (secondhp <= 0) {
-				App_Controller.getInstance.nextScene (new End_Battle_Scene(App_Controller.getInstance));
+				End_Battle_Checker.getInstance.isEnd = true;
 			}
 		} 
 		else if(playing == user.second){
 			firsthp -= damage;
 			hpbar.firstImgDraw (firsthp);
 			if (firsthp <= 0) {
-				App_Controller.getInstance.nextScene (new End_Battle_Scene(App_Controller.getInstance));
+				End_Battle_Checker.getInstance.isEnd = true;
 			}
 		}
 	}

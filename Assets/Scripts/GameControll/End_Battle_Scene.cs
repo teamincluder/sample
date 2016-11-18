@@ -3,7 +3,7 @@ using System.Collections;
 
 public class End_Battle_Scene : Scene_Interface {
 	private string 	result 	= 	null;
-	private int count		=	0;
+	private bool count		=	false;
 	public End_Battle_Scene(App_Controller manager):base(manager){
 	}
 
@@ -17,9 +17,9 @@ public class End_Battle_Scene : Scene_Interface {
 	}
 
 	public override void onClick (){
-		if (count != 0)
+		if (count)
 			nextScene ();
 		else
-			count++;
+			count=true;
 	}
 }

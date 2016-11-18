@@ -5,7 +5,7 @@ public class Battle_Timer : MonoBehaviour {
 	private const string TIMER_PATH	=	"Canvas/Timer/time_text";
 
 	private bool 	ismain 		= false;
-	private float	time		= 60;
+	private float	time;
 	private Text	timetext;
 
 	private void Awake(){
@@ -14,12 +14,19 @@ public class Battle_Timer : MonoBehaviour {
 		StartCoroutine (countTime ());
 	}
 	private IEnumerator countTime(){
+		timetext.text	=	time.ToString ();
 		while(true){
-			if (ismain)
+			if (ismain) {
 				time--;
-			timetext.text	=	time.ToString ();
+				timetext.text	=	time.ToString ();
+				if (time <= 0)
+					End_Battle_Checker.getInstance.isEnd = true;
+			}
 			yield return new WaitForSeconds (1f);
 		}
+	}
+	public void setTime(int battletime){
+		time = (float)battletime;
 	}
 	public void isMain(bool result){
 		ismain = result;
