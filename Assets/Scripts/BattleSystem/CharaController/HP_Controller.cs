@@ -19,8 +19,7 @@ public class HP_Controller : MonoBehaviour {
 
 	/*ガード*/
 	private const float GUARD 				=	3f;
-	private bool		isfirstguard		=	false;
-	private bool		issecondguard		=	false;
+
 	/*ライフ*/
 	private float firsthp 	= 100f;
 	private float secondhp	= 100f;
@@ -40,59 +39,46 @@ public class HP_Controller : MonoBehaviour {
 		hpbar = this.GetComponent<Battle_HP_Bar> ();
 	}
 
-	public void firstJab(){
-		draw (user.first,DAMAGE_JAB);
+	public void firstJab(bool isGuard){
+		draw (user.first,DAMAGE_JAB,isGuard);
 	}
 
-	public void firstStrong(){
-		draw (user.first,DAMAGE_STRONG);
+	public void firstStrong(bool isGuard){
+		draw (user.first,DAMAGE_STRONG,isGuard);
 	}
 
-	public void firstDeathBlow(){
-		draw (user.first,DAMAGE_DEATHBLOW);
+	public void firstDeathBlow(bool isGuard){
+		draw (user.first,DAMAGE_DEATHBLOW,isGuard);
 	}
 
-	public void firstGuard(){
-		isfirstguard = true;
+	public void secondJab(bool isGuard){
+		draw (user.second,DAMAGE_JAB,isGuard);
 	}
 
-	public void secondJab(){
-		draw (user.second,DAMAGE_JAB);
+	public void secondStrong(bool isGuard){
+		draw (user.second, DAMAGE_STRONG,isGuard);
 	}
 
-	public void secondStrong(){
-		draw (user.second, DAMAGE_STRONG);
+	public void secondDeathBlow(bool isGuard){
+		draw (user.second,DAMAGE_DEATHBLOW,isGuard);
 	}
 
-	public void secondDeathBlow(){
-		draw (user.second,DAMAGE_DEATHBLOW);
-	}
-
-	public void secondGuard(){
-		issecondguard = true;
-	}
-
-
-	private void draw(user playing,float damage){
+	private void draw(user playing,float damage,bool isGuard){
 		if (playing == user.first) {
-			if (issecondguard)
-				damage -= GUARD;
-			issecondguard = false;
-			secondhp -= damage;
-			hpbar.secondImgDraw (secondhp);
-			if (secondhp <= 0) {
-				End_Battle_Checker.getInstance.isEnd = true;
-			}
+			secondhp	-= damageCalc(damage,isGuard);
 		} 
 		else if(playing == user.second){
-			if (isfirstguard)
-				damage -= GUARD;
-			isfirstguard = false;
-			firsthp -= damage;
-			hpbar.firstImgDraw (firsthp);
-			if (firsthp <= 0) {
-				End_Battle_Checker.getInstance.isEnd = true;
-			}
+			firsthp		-= damageCalc(damage,isGuard);
 		}
+		if (secondhp <= 0 || firsthp <= 0) {
+			End_Battle_Checker.getInstance.isEnd = true;
+		}
+		hpbar.lifeDraw (firsthp,secondhp);
+	}
+	private float damageCalc(float damage,bool isGuard){
+		float result = damage;
+		if (isGuard)
+			result -= GUARD;
+		return result;
 	}
 }

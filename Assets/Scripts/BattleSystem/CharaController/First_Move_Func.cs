@@ -8,9 +8,17 @@ using System.Collections;
 */
 public class First_Move_Func :Move_Func_InterFace {
 	Rigidbody2D	rb;
+	Guard_Controller gc;
+	Trigger_Interface triggers;
 	private bool isground	=	false;
 	private void Awake(){
-		rb 	=	this.GetComponent<Rigidbody2D>();
+		rb 			=	this.GetComponent<Rigidbody2D>();
+		gc			=	this.gameObject.transform
+							.FindChild (GUARD_PATH).gameObject
+							.AddComponent<Guard_Controller> ();
+		gc.init (true);
+		triggers 	=	this.GetComponent<Trigger_Interface> (); 
+		
 	}
 
 	public override void rightMove(){
@@ -38,23 +46,23 @@ public class First_Move_Func :Move_Func_InterFace {
 	}
 
 	public override void guardMove(){
-		Debug.Log ("ガード！");
-		HP_Controller.getInstance.firstGuard ();
+		gc.isVisible (true);
+	}
+
+	public override void noguardMove(){
+		gc.isVisible (false);
 	}
 
 	public override void jabMove(){
-		Debug.Log ("jab");
-		HP_Controller.getInstance.firstJab ();
+		HP_Controller.getInstance.firstJab (triggers.jab_Guard);
 	}
 
 	public override void strongMove(){
-		Debug.Log ("strong");
-		HP_Controller.getInstance.firstStrong ();
+		HP_Controller.getInstance.firstStrong (triggers.strong_Guard);
 	}
 
 	public override void deathBlowMove(){
-		Debug.Log ("death");
-		HP_Controller.getInstance.firstDeathBlow ();
+		HP_Controller.getInstance.firstDeathBlow (triggers.deathblow_Guard);
 	}
 
 }

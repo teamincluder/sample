@@ -50,10 +50,17 @@ public class Key_Controll: MonoBehaviour {
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
 			.Where (_ => Input.GetKey(keylist.guard_Key))
-			.Where (_ => triggers.guard_Hit)
 			.Subscribe (_ => 
 				{
 					move.guardMove();
+				});
+
+		this.UpdateAsObservable ()
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyUp (keylist.guard_Key))
+			.Subscribe (_ => 
+				{
+					move.noguardMove();
 				});
 
 		/*弱攻撃処理*/

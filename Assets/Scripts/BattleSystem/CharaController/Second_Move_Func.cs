@@ -10,9 +10,16 @@ using System.Collections;
 public class Second_Move_Func : Move_Func_InterFace {
 	Unit unit = new Unit();
 	Rigidbody2D rb;
+	Guard_Controller gc;
+	Trigger_Interface triggers;
 
 	private void Awake(){
 		rb 	=	this.GetComponent<Rigidbody2D>();
+		gc	=	this.gameObject.transform
+					.FindChild (GUARD_PATH).gameObject
+					.AddComponent<Guard_Controller> ();
+		gc.init (false);
+		triggers = this.GetComponent<Trigger_Interface> ();
 	}
 	public override void rightMove(){
 		Vector3	vec	= Vector3.zero;
@@ -39,20 +46,22 @@ public class Second_Move_Func : Move_Func_InterFace {
 	}
 
 	public override void guardMove(){
-		Debug.Log("ガード！");
-		HP_Controller.getInstance.secondGuard ();
+		gc.isVisible (true);
+	}
+	public override void noguardMove(){
+		gc.isVisible (false);
 	}
 
 	public override void jabMove(){
-		HP_Controller.getInstance.secondJab ();
+		HP_Controller.getInstance.secondJab (triggers.jab_Guard);
 	}
 
 	public override void strongMove(){
-		HP_Controller.getInstance.secondStrong ();
+		HP_Controller.getInstance.secondStrong (triggers.strong_Guard);
 	}
 
 	public override void deathBlowMove(){
-		HP_Controller.getInstance.secondDeathBlow ();
+		HP_Controller.getInstance.secondDeathBlow (triggers.deathblow_Guard);
 	}
 
 }

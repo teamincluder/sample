@@ -14,11 +14,8 @@ public class Battle_HP_Bar : MonoBehaviour {
 		secondimg 	= GameObject.Find (SECOND_HP_PATH).GetComponent<Image> ();
 	}
 
-	public void firstImgDraw(float result){
-		firstimg.fillAmount = ( result / 100 );
-	}
-
-	public void secondImgDraw(float result){
-		secondimg.fillAmount = ( result / 100 );
+	public void lifeDraw(float firstlife,float secondlife){
+		firstimg.fillAmount		= 	( firstlife / 100 );
+		secondimg.fillAmount	=	( secondlife / 100 );
 	}
 }
