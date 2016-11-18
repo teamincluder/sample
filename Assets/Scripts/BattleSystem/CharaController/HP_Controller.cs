@@ -19,7 +19,8 @@ public class HP_Controller : MonoBehaviour {
 
 	/*ガード*/
 	private const float GUARD 				=	3f;
-
+	private bool		isfirstguard		=	false;
+	private bool		issecondguard		=	false;
 	/*ライフ*/
 	private float firsthp 	= 100f;
 	private float secondhp	= 100f;
@@ -35,7 +36,7 @@ public class HP_Controller : MonoBehaviour {
 			instance = this;
 		else
 			Destroy (this);
-
+		
 		hpbar = this.GetComponent<Battle_HP_Bar> ();
 	}
 
@@ -51,6 +52,10 @@ public class HP_Controller : MonoBehaviour {
 		draw (user.first,DAMAGE_DEATHBLOW);
 	}
 
+	public void firstGuard(){
+		isfirstguard = true;
+	}
+
 	public void secondJab(){
 		draw (user.second,DAMAGE_JAB);
 	}
@@ -63,9 +68,16 @@ public class HP_Controller : MonoBehaviour {
 		draw (user.second,DAMAGE_DEATHBLOW);
 	}
 
+	public void secondGuard(){
+		issecondguard = true;
+	}
+
 
 	private void draw(user playing,float damage){
 		if (playing == user.first) {
+			if (issecondguard)
+				damage -= GUARD;
+			issecondguard = false;
 			secondhp -= damage;
 			hpbar.secondImgDraw (secondhp);
 			if (secondhp <= 0) {
@@ -73,6 +85,9 @@ public class HP_Controller : MonoBehaviour {
 			}
 		} 
 		else if(playing == user.second){
+			if (isfirstguard)
+				damage -= GUARD;
+			isfirstguard = false;
 			firsthp -= damage;
 			hpbar.firstImgDraw (firsthp);
 			if (firsthp <= 0) {

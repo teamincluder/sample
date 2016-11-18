@@ -39,6 +39,7 @@ public class First_Move_Func :Move_Func_InterFace {
 
 	public override void guardMove(){
 		Debug.Log ("ガード！");
+		HP_Controller.getInstance.firstGuard ();
 	}
 
 	public override void jabMove(){
