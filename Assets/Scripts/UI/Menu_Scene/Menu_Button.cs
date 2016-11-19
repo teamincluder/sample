@@ -44,20 +44,20 @@ public class Menu_Button : MonoBehaviour {
 	private void subscribe(){
 		First_Key_List list = new First_Key_List (true);
 		this.UpdateAsObservable ()
-			.Where (_ => Input.GetKeyDown (list.up_Key))
+			.Where (_ => Input.GetKeyDown (list.right_Key))
 			.Subscribe (_=>
 				{
-					upKey();
+					rightMoveButton();
 					changeImg();
 				})
 			.AddTo(this);
 
 
 		this.UpdateAsObservable ()
-			.Where (_ => Input.GetKeyDown (list.down_Key))
+			.Where (_ => Input.GetKeyDown (list.left_Key))
 			.Subscribe (_=>
 				{
-					downKey();
+					leftMoveButton();
 					changeImg();
 				})
 			.AddTo(this);
@@ -72,19 +72,18 @@ public class Menu_Button : MonoBehaviour {
 			.AddTo(this);
 	}
 	/*下押されたときの処理*/
-	private void downKey(){
+	private void rightMoveButton(){
 		if (nowselect != select.option)
 			nowselect++;
 	}
 	/*上押されたときの処理*/
-	private void upKey(){
+	private void leftMoveButton(){
 		if (nowselect != select.story)
 			nowselect--;
 	}
 
 	/*丸押された時の処理*/
 	private void nextScene(){			
-
 		switch(nowselect)
 		{
 		case select.story:
