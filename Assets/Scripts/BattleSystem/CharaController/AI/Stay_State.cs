@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stay_State : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+public class Stay_State : AI_State_Interface {
+	public Stay_State(AI_Controller manager):base(manager){
+		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public override void start (){
+		
+	}
+
+	public override void update (){
+		
+	}
+
+	public override void changeState (){
+		
 	}
 }
