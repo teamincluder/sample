@@ -8,7 +8,6 @@ public class Move_State : AI_State_Interface {
 
 	public override void update ()
 	{
-		float dist = Vector3.Distance (target.position, mine.position);
 		if (dist_X <= near)
 			changeState ();
 		else if (timer <= 0)
@@ -35,4 +34,3 @@ public class Move_State : AI_State_Interface {
 		ismainfunc = false;
 	}
 }
-

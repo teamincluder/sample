@@ -9,13 +9,12 @@ public class Attack_State : AI_State_Interface {
 
 	public override void update ()
 	{
-		if (dist_X >= near) {
+		if (dist_X >= near) 
 			changeState ();
-		} else if (timer <= 0)
+		else if (timer <= 0)
 			attack ();
 		else
 			timeCount ();
-			
 	}
 
 	public override void changeState ()

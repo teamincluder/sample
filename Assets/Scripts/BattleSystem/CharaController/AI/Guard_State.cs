@@ -6,16 +6,16 @@ public class Guard_State : AI_State_Interface {
 		
 	}
 	
-	public override void start ()
-	{
+	public override void start (){
+		
 	}
 
-	public override void update ()
-	{
+	public override void update (){
+		
 	}
 
-	public override void changeState ()
-	{
+	public override void changeState (){
+		
 	}
 
 
