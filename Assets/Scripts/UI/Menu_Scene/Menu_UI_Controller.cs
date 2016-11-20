@@ -27,14 +27,14 @@ public class Menu_UI_Controller : MonoBehaviour {
 		}
 	}
 
-	public void titleScene(){		
-		menubackground.changeBg (TITLE_BG);
+	public void titleScene(){
+		menubackground.logoVisible (true);
 		menubutton.isVisible (false);
 	}
 
 	public void menuScene(){
-		menubackground.changeBg (MENU_BG);
 		menubutton.isVisible (true);
+		menubackground.logoVisible (false);
 		//Logo.getInstance.mainScene ();
 	}
 }
