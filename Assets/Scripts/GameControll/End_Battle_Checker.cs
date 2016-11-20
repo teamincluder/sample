@@ -1,4 +1,5 @@
 ﻿public class End_Battle_Checker {
+	
 	private static End_Battle_Checker instance =null;
 	private bool isend = false;
 
@@ -17,7 +18,7 @@
 		set{
 			isend = value;
 			if (isend) {
-				App_Controller.getInstance.nextScene (new End_Battle_Scene (App_Controller.getInstance));
+				//Scene_Controll_Interface.get_Instance.changeState (new End_Battle_Scene ());
 				instance = null;
 			}
 		}

@@ -16,7 +16,7 @@ public class Battle_UI_Controller : MonoBehaviour {
 	private Battle_Timer	battletimer;
 
 	private static Battle_UI_Controller instance;
-	public static Battle_UI_Controller getInstance{
+	public static Battle_UI_Controller get_Instance{
 		get{
 			return instance;
 		}

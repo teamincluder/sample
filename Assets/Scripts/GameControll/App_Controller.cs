@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using System.Threading;
+using UniRx;
+using UniRx.Triggers;
 
-[RequireComponent(typeof(App_Key_Click))]
 public class App_Controller : MonoBehaviour {
 	
 	private const int FRAMERATE = 60;
 	private static App_Controller instance;
-	private Scene_Interface nowScene;
+	private Scene_Controll_Interface nowScene;
 
-	public static App_Controller getInstance{
+	public static App_Controller get_Instance{
 		get{
 			return App_Controller.instance;
 		}
@@ -28,29 +28,12 @@ public class App_Controller : MonoBehaviour {
 
 	void Start () {
 		DontDestroyOnLoad (this);
-		nowScene = new Title_Scene (App_Controller.getInstance);
+		nowScene = new Scene_Controll_Interface();
+		nowScene.changeState(new Title_Scene(this.nowScene));
 		nowScene.start ();
 	}
 
-	/*次のシーンに移行*/
-	public void nextScene(Scene_Interface nextscene,string nextstr = ""){
-		this.nowScene = nextscene;
-		if (nextstr != "") {
-			SceneManager.LoadScene (nextstr);
-			StartCoroutine (nextFrame ());
-		} 
-		else {
-			nowScene.start ();
-		}
-	}
-
-	/*LoadScene後は、次のフレームじゃないといじれないから１フレーム待機*/
-	private IEnumerator nextFrame(){
-		yield return null;
-		nowScene.start ();
-	}
-
-	public void onClick(){
-		nowScene.onClick ();
+	void Update(){
+		nowScene.update ();
 	}
 }

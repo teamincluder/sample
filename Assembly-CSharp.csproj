@@ -71,9 +71,9 @@
      <Compile Include="Assets\Scripts\GameControll\Interface\Scene_Interface.cs" />
      <Compile Include="Assets\Scripts\GameControll\Main_Battle_Scene.cs" />
      <Compile Include="Assets\Scripts\GameControll\Menu_Scene.cs" />
+     <Compile Include="Assets\Scripts\GameControll\Scene_Controll_Interface.cs" />
      <Compile Include="Assets\Scripts\GameControll\Start_Battle_Scene.cs" />
      <Compile Include="Assets\Scripts\GameControll\Title_Scene.cs" />
-     <Compile Include="Assets\Scripts\Key\App_Key_Click.cs" />
      <Compile Include="Assets\Scripts\Key\First_Key_List.cs" />
      <Compile Include="Assets\Scripts\Key\Key_Interface.cs" />
      <Compile Include="Assets\Scripts\Key\Second_Key_List.cs" />
@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_HP_Bar.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_Timer.cs" />
      <Compile Include="Assets\Scripts\UI\Battle_Scene\Battle_UI_Controller.cs" />
+     <Compile Include="Assets\Scripts\UI\Menu_Scene\Button_State.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Scene\Logo.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Scene\Menu_BackGround.cs" />
      <Compile Include="Assets\Scripts\UI\Menu_Scene\Menu_Button.cs" />

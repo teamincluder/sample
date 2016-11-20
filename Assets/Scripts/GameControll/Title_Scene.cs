@@ -1,15 +1,18 @@
 ﻿public class Title_Scene : Scene_Interface {
-	public Title_Scene(App_Controller manager):base(manager){
+	public Title_Scene (Scene_Controll_Interface state):base(state){
 	}
-
 	public override void start ()
 	{
-		Menu_UI_Controller.getInstance.titleScene ();
+		Menu_UI_Controller.get_Instance.titleScene ();
+	}
+
+	public override void update(){
 	}
 
 	public override void nextScene ()
 	{
-		this.manager.nextScene (new Menu_Scene(this.manager));
+
+		this.state.changeState (new Menu_Scene(this.state));
 	}
 		
 	public override void onClick ()

@@ -2,14 +2,20 @@
 using System;
 
 public class Main_Battle_Scene : Scene_Interface{
-	public Main_Battle_Scene (App_Controller manager):base(manager){
+	public Main_Battle_Scene (Scene_Controll_Interface state):base(state){
 	}
 	public override void start (){
-		Battle_UI_Controller.getInstance.mainBattleScene ();
+		Battle_UI_Controller.get_Instance.mainBattleScene ();
 		Controll_InterFace.get_Instance.isMain (true);
 	}
 
+	public override void update ()
+	{
+	}
+
+
 	public override void nextScene (){
+		this.state.changeState (new End_Battle_Scene(this.state));
 		/*
 			End_Battle_Checkerに持たせてる
 		*/

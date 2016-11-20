@@ -2,17 +2,18 @@
 using System.Collections;
 
 public class Start_Battle_Scene : Scene_Interface {
-
-	public Start_Battle_Scene(App_Controller manager):base(manager){
+	public Start_Battle_Scene(Scene_Controll_Interface state):base(state){
 	}
-
 	public override void start (){
-		Battle_UI_Controller.getInstance.startBattleScene ();
+		Battle_UI_Controller.get_Instance.startBattleScene ();
 		Controll_InterFace.get_Instance.isMain (false);
 	}
 
+	public override void update(){
+	}
+
 	public override void nextScene (){
-		this.manager.nextScene (new Main_Battle_Scene(this.manager));
+		this.state.changeState (new Main_Battle_Scene(this.state));
 	}
 
 	public override void onClick (){
