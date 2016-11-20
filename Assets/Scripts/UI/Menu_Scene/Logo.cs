@@ -9,12 +9,14 @@ public class Logo: MonoBehaviour {
 			return instance;
 		}
 	}
+
 	private void Awake(){
 		if (instance == null)
 			instance = this;
 		else
 			Destroy (this.gameObject);
 	}
+
 	public void notVisible(){
 		isvisible = false;
 		this.gameObject.SetActive (isvisible);

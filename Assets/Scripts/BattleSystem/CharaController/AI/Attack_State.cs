@@ -19,7 +19,7 @@ public class Attack_State : AI_State_Interface {
 
 	public override void changeState ()
 	{
-		this.manager.changeState (new Move_State(this.manager));
+		//this.manager.changeState (new Move_State(this.manager));
 	}
 
 	public void attack(){

@@ -7,7 +7,6 @@ public class AI_Controller: MonoBehaviour {
 
 	//trigger判定
 	private Trigger_Interface triggers;
-
 	public Trigger_Interface get_Triggers{
 		get{
 			return triggers;
@@ -15,7 +14,6 @@ public class AI_Controller: MonoBehaviour {
 	}
 
 	private Transform target;
-
 	public Transform get_Target{
 		get{
 			return target;
@@ -52,10 +50,25 @@ public class AI_Controller: MonoBehaviour {
 	void Update(){
 		if(ismain)
 			autobattle.update ();
+		this.changeState ();
 	}
 
-	public void changeState(AI_State_Interface next){
-		autobattle = next;
+	public void changeState(){
+		int result = 1;
+		switch(result){
+		case 1:
+			autobattle = new Attack_State (this);
+			break;
+		case 2:
+			autobattle = new Move_State (this);
+			break;
+		case 3:
+			autobattle = new Guard_State (this);
+			break;
+		case 4:
+			autobattle = new Stay_State (this);
+			break;
+		}
 		autobattle.start ();
 	}
 }
