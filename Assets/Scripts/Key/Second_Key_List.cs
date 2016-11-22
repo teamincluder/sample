@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 public class Second_Key_List :Key_Interface{ 
-	public Second_Key_List(bool isdebug = false){
+	public Second_Key_List(){
+		bool isdebug = true;
 		if (!isdebug) {
 			left_Key 	= KeyCode.LeftArrow;
 			up_Key 		= KeyCode.UpArrow;

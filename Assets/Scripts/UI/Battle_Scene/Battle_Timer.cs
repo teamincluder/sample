@@ -14,19 +14,19 @@ public class Battle_Timer : MonoBehaviour {
 		StartCoroutine (countTime ());
 	}
 	private IEnumerator countTime(){
-		timetext.text	=	time.ToString ();
 		while(true){
 			if (ismain) {
 				time--;
 				timetext.text	=	time.ToString ();
 				if (time <= 0)
-					End_Battle_Checker.getInstance.isEnd = true;
+					End_Battle_Checker.get_Instance.isEnd = true;
 			}
 			yield return new WaitForSeconds (1f);
 		}
 	}
 	public void setTime(int battletime){
 		time = (float)battletime;
+		timetext.text	=	time.ToString ();
 	}
 	public void isMain(bool result){
 		ismain = result;

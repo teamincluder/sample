@@ -28,12 +28,12 @@ public class App_Controller : MonoBehaviour {
 
 	void Start () {
 		DontDestroyOnLoad (this);
-		nowScene = new Scene_Controll_Interface();
+		nowScene = this.gameObject.AddComponent<Scene_Controll_Interface> ();
 		nowScene.changeState(new Title_Scene(this.nowScene));
-		nowScene.start ();
+		nowScene.nowSceneStart ();
 	}
 
 	void Update(){
-		nowScene.update ();
+		nowScene.nowSceneUpdate ();
 	}
 }

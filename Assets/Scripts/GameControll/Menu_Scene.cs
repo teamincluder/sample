@@ -10,27 +10,26 @@ public class Menu_Scene : Scene_Interface {
 
 	public override void update ()
 	{
-		First_Key_List first = new First_Key_List (true);
-		if (Input.GetKeyDown (first.jab_Key))
+		First_Key_List first = new First_Key_List ();
+		if (Input.GetKeyDown (first.jab_Key)) {
 			nextScene ();
+		}
 	}
 
 	public override void nextScene (){
-		Button_State buttonstate = Button_State.get_Instance;	
+		Button_State buttonstate = Button_State.get_Instance;
 		if (buttonstate.checkStory ()) {
 			Debug.Log ("Story");
 		} 
 		else if (buttonstate.checkBattle ()) {
 			this.state.changeState (new Start_Battle_Scene(this.state),"Battle");
-		} 
+		}
 		else if (buttonstate.checkOption ()) {
 			Debug.Log ("option");
 		}
+		buttonstate.exit ();
 	}
 
 	public override void onClick (){
-		/*
-			同上
-		*/
 	}
 }

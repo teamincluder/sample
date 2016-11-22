@@ -11,6 +11,10 @@ public class Main_Battle_Scene : Scene_Interface{
 
 	public override void update ()
 	{
+		if (End_Battle_Checker.get_Instance.isEnd) {
+			End_Battle_Checker.get_Instance.exit ();
+			nextScene ();
+		}
 	}
 
 

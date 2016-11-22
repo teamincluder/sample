@@ -71,7 +71,7 @@ public class HP_Controller : MonoBehaviour {
 			firsthp		-= damageCalc(damage,isGuard);
 		}
 		if (secondhp <= 0 || firsthp <= 0) {
-			End_Battle_Checker.getInstance.isEnd = true;
+			End_Battle_Checker.get_Instance.isEnd = true;
 		}
 		hpbar.lifeDraw (firsthp,secondhp);
 	}

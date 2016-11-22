@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 public class First_Key_List : Key_Interface{ 
-	public First_Key_List(bool isdebug = false){
+	public First_Key_List(){
+		bool isdebug = true;
 		if (!isdebug) {
 			left_Key 	= KeyCode.JoystickButton14;
 			up_Key	 	= KeyCode.JoystickButton15;

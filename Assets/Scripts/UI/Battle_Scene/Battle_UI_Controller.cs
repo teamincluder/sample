@@ -9,8 +9,7 @@ public class Battle_UI_Controller : MonoBehaviour {
 	private	const	string	START_MESSAGE 	=	"Click Start!";
 
 	/*バトル時間*/
-	[SerializeField]
-	private int	BATTLE_TIME;
+	private int	BATTLE_TIME = 60;
 
 	private Battle_Font		battlefont;
 	private Battle_Timer	battletimer;

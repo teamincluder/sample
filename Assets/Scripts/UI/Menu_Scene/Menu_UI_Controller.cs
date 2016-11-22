@@ -47,7 +47,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 
 	/*オブザーバ購読*/
 	private void subscribe(){
-		First_Key_List list = new First_Key_List (true);
+		First_Key_List list = new First_Key_List ();
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.right_Key))
 			.Subscribe (_=>
@@ -81,5 +81,4 @@ public class Menu_UI_Controller : MonoBehaviour {
 	private void leftMoveButton(){
 		buttonstate.nowStateMinus ();
 	}
-
 }
