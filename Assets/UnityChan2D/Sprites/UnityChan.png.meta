@@ -1,7 +1,27 @@
 fileFormatVersion: 2
 guid: 37426dfe5cfb14626a6e1c60f8d927eb
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: UnityChan_footwork_0
+    21300002: UnityChan_footwork_1
+    21300004: UnityChan_footwork_2
+    21300006: UnityChan_damage1_0
+    21300008: UnityChan_damage2_0
+    21300010: UnityChan_run_0
+    21300012: UnityChan_run_1
+    21300014: UnityChan_run_2
+    21300016: UnityChan_run_3
+    21300018: UnityChan_run_4
+    21300020: UnityChan_run_5
+    21300022: UnityChan_run_6
+    21300024: UnityChan_run_7
+    21300026: UnityChan_jump_up_0
+    21300028: UnityChan_jump_up_1
+    21300030: UnityChan_jump_top_0
+    21300032: UnityChan_jump_top_1
+    21300034: UnityChan_jump_top_2
+    21300036: UnityChan_jump_down_0
+    21300038: UnityChan_jump_down_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -44,11 +64,14 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 16
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: UnityChan_footwork_0
+    - serializedVersion: 2
+      name: UnityChan_footwork_0
       rect:
         serializedVersion: 2
         x: 0
@@ -59,7 +82,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_footwork_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_footwork_1
       rect:
         serializedVersion: 2
         x: 64
@@ -70,7 +95,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_footwork_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_footwork_2
       rect:
         serializedVersion: 2
         x: 128
@@ -81,7 +108,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_damage1_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_damage1_0
       rect:
         serializedVersion: 2
         x: 192
@@ -92,7 +121,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_damage2_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_damage2_0
       rect:
         serializedVersion: 2
         x: 256
@@ -103,7 +134,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,7 +147,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_1
       rect:
         serializedVersion: 2
         x: 64
@@ -125,7 +160,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_2
       rect:
         serializedVersion: 2
         x: 128
@@ -136,7 +173,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_3
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_3
       rect:
         serializedVersion: 2
         x: 192
@@ -147,7 +186,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_4
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_4
       rect:
         serializedVersion: 2
         x: 0
@@ -158,7 +199,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_5
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_5
       rect:
         serializedVersion: 2
         x: 64
@@ -169,7 +212,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_6
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_6
       rect:
         serializedVersion: 2
         x: 128
@@ -180,7 +225,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_run_7
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_run_7
       rect:
         serializedVersion: 2
         x: 192
@@ -191,7 +238,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_up_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_up_0
       rect:
         serializedVersion: 2
         x: 0
@@ -202,7 +251,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_up_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_up_1
       rect:
         serializedVersion: 2
         x: 64
@@ -213,7 +264,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_top_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_top_0
       rect:
         serializedVersion: 2
         x: 128
@@ -224,7 +277,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_top_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_top_1
       rect:
         serializedVersion: 2
         x: 192
@@ -235,7 +290,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_top_2
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_top_2
       rect:
         serializedVersion: 2
         x: 256
@@ -246,7 +303,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_down_0
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_down_0
       rect:
         serializedVersion: 2
         x: 320
@@ -257,7 +316,9 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: UnityChan_jump_down_1
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: UnityChan_jump_down_1
       rect:
         serializedVersion: 2
         x: 384
@@ -268,6 +329,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      tessellationDetail: -1
     outline: []
   spritePackingTag: UnityChan
   userData: 
