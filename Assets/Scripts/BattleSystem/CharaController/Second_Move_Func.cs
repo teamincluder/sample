@@ -24,7 +24,7 @@ public class Second_Move_Func : Move_Func_InterFace {
 	public override void rightMove(){
 		Vector3	vec	= Vector3.zero;
 		vec.x = SPEED;				
-		this.transform.localScale = RIGHT_MOVE;	
+		this.transform.localScale = SECOND_RIGHT_MOVE;	
 		vec += this.transform.position;
 		this.transform.position = vec;
 	}
@@ -32,7 +32,7 @@ public class Second_Move_Func : Move_Func_InterFace {
 	public override void leftMove(){
 		Vector3	vec	= Vector3.zero;
 		vec.x = -SPEED;				
-		this.transform.localScale = LEFT_MOVE;
+		this.transform.localScale = SECOND_LEFT_MOVE;
 		vec += this.transform.position;
 		this.transform.position = vec;
 	}
