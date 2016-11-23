@@ -50,25 +50,26 @@ public class AI_Controller: MonoBehaviour {
 	void Update(){
 		if(ismain)
 			autobattle.update ();
-		this.changeState ();
 	}
 
-	public void changeState(){
-		int result = 1;
+	public void changeState(int result){
 		switch(result){
-		case 1:
+		case 0:
 			autobattle = new Attack_State (this);
 			break;
-		case 2:
+		case 1:
 			autobattle = new Move_State (this);
 			break;
-		case 3:
+		case 2:
 			autobattle = new Guard_State (this);
 			break;
-		case 4:
+		case 3:
 			autobattle = new Stay_State (this);
 			break;
 		}
 		autobattle.start ();
+	}
+	public int tekitoudeii(){
+		return Random.Range (0,4);
 	}
 }

@@ -22,7 +22,12 @@ public class Trigger_Hit : MonoBehaviour {
 			return ishitguard;
 		}
 	}
-		
+
+	void Update(){
+		if (!Guard_Controller.get_Instance.is_Visible)
+			ishitguard = false;
+	}
+
 	void OnTriggerEnter2D(Collider2D other){
 		if (checkHitTag(other.tag))
 			ishit = true;
@@ -34,8 +39,8 @@ public class Trigger_Hit : MonoBehaviour {
 			ishit = true;
 		if (checkHitGuardTag (other.tag))
 			ishitguard = true;
-		else
-			ishitguard = false;
+		/*else
+			ishitguard = false;*/
 	}
 	void OnTriggerExit2D(Collider2D other){
 		if (checkHitTag(other.tag))

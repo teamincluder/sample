@@ -84,8 +84,8 @@ public class Key_Controll: MonoBehaviour {
 				{
 					move.strongMove();
 				});
-		
-		/*必殺技処理*/
+
+		/*必殺技処理
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
 			.Where (_ => Input.GetKeyDown(keylist.jab_Key))
@@ -95,7 +95,8 @@ public class Key_Controll: MonoBehaviour {
 				{
 					move.deathBlowMove();
 				});
-		
+		*/
+
 		/*左移動*/
 		this.UpdateAsObservable()
 			.Where (_ => ismain)

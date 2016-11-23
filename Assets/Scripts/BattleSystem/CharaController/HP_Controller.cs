@@ -18,7 +18,7 @@ public class HP_Controller : MonoBehaviour {
 	private const float DAMAGE_DEATHBLOW	=	20f;
 
 	/*ガード*/
-	private const float GUARD 				=	3f;
+	private const float GUARD 				=	10f;
 
 	/*ライフ*/
 	private float firsthp 	= 100f;
@@ -77,8 +77,13 @@ public class HP_Controller : MonoBehaviour {
 
 	private float damageCalc(float damage,bool isGuard){
 		float result = damage;
-		if (isGuard)
-			result -= GUARD;
+		Debug.Log (isGuard);
+		if (isGuard) {
+			if (GUARD <= damage)
+				result -= GUARD;
+			else
+				result = 0;
+		}
 		return result;
 	}
 

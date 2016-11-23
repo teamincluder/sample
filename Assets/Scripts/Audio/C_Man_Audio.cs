@@ -7,23 +7,19 @@ public class C_Man_Audio :MonoBehaviour,Audio_Interface{
 		sources = this.GetComponents<AudioSource> ();
 		start ();
 	}
-	public void start ()
-	{
+	public void start (){
 		sources [0].Play ();
 	}
 
-	public void jab ()
-	{
+	public void jab (){
 		sources [1].Play ();
 	}
 
-	public void strong ()
-	{
+	public void strong (){
 		sources [2].Play ();
 	}
 
-	public void win ()
-	{
+	public void win (){
 		sources [3].Play ();
 	}
 

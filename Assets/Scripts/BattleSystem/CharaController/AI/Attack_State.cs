@@ -19,7 +19,7 @@ public class Attack_State : AI_State_Interface {
 
 	public override void changeState ()
 	{
-		//this.manager.changeState (new Move_State(this.manager));
+		this.manager.changeState (this.manager.tekitoudeii());
 	}
 
 	public void attack(){
@@ -27,14 +27,11 @@ public class Attack_State : AI_State_Interface {
 			return;
 		ismainfunc = true;
 		Second_Move_Func attack = this.manager.move_Func;
-		int result = Random.Range (0,10);
-		if (result <= 5 && this.manager.get_Triggers.jab_Hit)
+		int result = Random.Range (0,2);
+		if (result == 0 && this.manager.get_Triggers.jab_Hit)
 			attack.jabMove ();
-		else if (result != 9 && this.manager.get_Triggers.strong_Hit)
+		else if (this.manager.get_Triggers.strong_Hit)
 			attack.strongMove ();
-		else if (this.manager.get_Triggers.deathblow_Hit) {
-			attack.deathBlowMove ();
-		}
 		timer 		= Random.Range (0.2f,1.2f);
 		ismainfunc	= false;
 	}
