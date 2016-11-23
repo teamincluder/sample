@@ -41,7 +41,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 		menubutton.isVisible (true);
 		menubackground.logoVisible (false);
 		subscribe ();
-		//Logo.getInstance.mainScene ();
+		Logo.getInstance.mainScene ();
 	}
 
 
