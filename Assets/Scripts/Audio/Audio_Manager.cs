@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Audio_Controller : MonoBehaviour {
+public class Audio_Manager : MonoBehaviour {
 	private const string FIRST_AUDIO 	= 	"1P";
 
 	private const string C_MAN_PATH 	=	"AUDIO/c_man_audio";
 
 	private Audio_Interface firstaudio;
 
-	private static Audio_Controller instance;
+	private static Audio_Manager instance;
 
-	public static Audio_Controller get_Instance{
+	public static Audio_Manager get_Instance{
 		get{
 			return instance;
 		}
@@ -23,23 +23,12 @@ public class Audio_Controller : MonoBehaviour {
 			Destroy (this.gameObject);
 		
 		firstaudio = makeObj (FIRST_AUDIO,C_MAN_PATH);
-		Debug.Log (firstaudio);
 	}
 
-	public void firstStart(){
-		firstaudio.start ();
-	}
-	public void firstJab(){
-		firstaudio.jab ();
-	}
-	public void firstStrong(){
-		firstaudio.strong ();
-	}
-	public void firstWin(){
-		firstaudio.win ();
-	}
-	public void firstLose(){
-		firstaudio.lose ();
+	public Audio_Interface first_Audio{
+		get{
+			return firstaudio;
+		}
 	}
 
 	private Audio_Interface makeObj(string parent,string charactor){

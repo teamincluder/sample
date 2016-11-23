@@ -65,20 +65,36 @@ public class HP_Controller : MonoBehaviour {
 
 	private void draw(user playing,float damage,bool isGuard){
 		if (playing == user.first) {
-			secondhp	-= damageCalc(damage,isGuard);
-		} 
-		else if(playing == user.second){
-			firsthp		-= damageCalc(damage,isGuard);
+			secondhp	-= damageCalc (damage, isGuard);
 		}
-		if (secondhp <= 0 || firsthp <= 0) {
-			End_Battle_Checker.get_Instance.isEnd = true;
+		else if (playing == user.second) {
+			firsthp -= damageCalc (damage, isGuard);
+			Audio_Manager.get_Instance.first_Audio.damage ();
 		}
+		this.checkEnd ();
 		hpbar.lifeDraw (firsthp,secondhp);
 	}
+
 	private float damageCalc(float damage,bool isGuard){
 		float result = damage;
 		if (isGuard)
 			result -= GUARD;
 		return result;
 	}
+
+	private void checkEnd(){
+		if (firsthp <= 0 && secondhp <= 0) {
+			End_Battle_Checker.get_Instance.isEnd = true;
+		}
+		else if (secondhp <= 0) {
+			End_Battle_Checker.get_Instance.is_First_Win = true;
+			End_Battle_Checker.get_Instance.isEnd = true;
+		} 
+		else if (firsthp <= 0) {
+			End_Battle_Checker.get_Instance.is_First_Win	= false;
+			End_Battle_Checker.get_Instance.isEnd 			= true;
+		}
+	}
+
+
 }

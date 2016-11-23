@@ -5,6 +5,7 @@ public class C_Man_Audio :MonoBehaviour,Audio_Interface{
 	private AudioSource[] sources;
 	public void Awake(){
 		sources = this.GetComponents<AudioSource> ();
+		start ();
 	}
 	public void start ()
 	{
@@ -29,5 +30,8 @@ public class C_Man_Audio :MonoBehaviour,Audio_Interface{
 	public void lose ()
 	{
 		sources [4].Play ();
+	}
+	public void damage(){
+		sources [5].Play ();
 	}
 }

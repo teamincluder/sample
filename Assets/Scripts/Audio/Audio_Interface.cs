@@ -4,4 +4,5 @@
 	void strong();
 	void win();
 	void lose ();
+	void damage();
 }

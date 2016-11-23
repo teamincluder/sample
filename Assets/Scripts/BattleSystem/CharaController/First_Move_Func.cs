@@ -54,12 +54,12 @@ public class First_Move_Func :Move_Func_InterFace {
 	}
 
 	public override void jabMove(){
-		Audio_Controller.get_Instance.firstJab ();
+		Audio_Manager.get_Instance.first_Audio.jab ();
 		HP_Controller.getInstance.firstJab (triggers.jab_Guard);
 	}
 
 	public override void strongMove(){
-		Audio_Controller.get_Instance.firstStrong ();
+		Audio_Manager.get_Instance.first_Audio.strong ();
 		HP_Controller.getInstance.firstStrong (triggers.strong_Guard);
 	}
 

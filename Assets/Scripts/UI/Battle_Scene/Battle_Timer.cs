@@ -13,6 +13,7 @@ public class Battle_Timer : MonoBehaviour {
 			timetext = GameObject.Find (TIMER_PATH).GetComponent<Text> ();
 		StartCoroutine (countTime ());
 	}
+
 	private IEnumerator countTime(){
 		while(true){
 			if (ismain) {
