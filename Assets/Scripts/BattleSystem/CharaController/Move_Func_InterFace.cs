@@ -7,7 +7,7 @@ public abstract class Move_Func_InterFace :MonoBehaviour{
 	protected Vector3 		FIRST_LEFT_MOVE		= new Vector3 (-1f,1f,1f);
 	protected Vector3 		SECOND_RIGHT_MOVE	= new Vector3 (-1f, 1f, 1f);
 	protected Vector3 		SECOND_LEFT_MOVE 	= new Vector3 (1f,1f,1f);
-	protected Vector2 		JUMP_MOVE			= new Vector2 (0f,10f);
+	protected Vector2 		JUMP_MOVE			= new Vector2 (0f,8f);
 
 	public abstract void rightMove();
 	public abstract void leftMove();
