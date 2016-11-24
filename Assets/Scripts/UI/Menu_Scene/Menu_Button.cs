@@ -52,7 +52,15 @@ public class Menu_Button : MonoBehaviour {
 		if (vssecond 	==	null)	vssecond	=	GameObject.Find("VS2P");
 		Image cpuImg	=	vscpu.GetComponent<Image> ();
 		Image secondImg	=	vssecond.GetComponent<Image> ();
-
+		Battle_Button_State nowstate = Battle_Button_State.get_Instance;
+		if (nowstate.isCPU()) {
+			cpuImg.sprite 		= makeSprite (SELECTED_VS_CPU_IMG_PATH);
+			secondImg.sprite	= makeSprite (VS_SECOND_IMG_PATH);
+		} 
+		else if (nowstate.isSecond()) {
+			cpuImg.sprite 		= makeSprite (VS_CPU_IMG_PATH);
+			secondImg.sprite	= makeSprite (SELECTED_VS_SECOND_IMG_PATH);
+		}
 	}
 
 

@@ -45,7 +45,8 @@ public class Menu_UI_Controller : MonoBehaviour {
 		Logo.getInstance.mainScene ();
 	}
 	public void battleSelect(){
-		menubutton.isBattle (true);
+		menubutton.isBattle	(true);
+		menubutton.isVisible (false);
 		battleSubscribe ();
 	}
 
