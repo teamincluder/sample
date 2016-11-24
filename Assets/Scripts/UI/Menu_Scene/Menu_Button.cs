@@ -10,17 +10,26 @@ public class Menu_Button : MonoBehaviour {
 	private const string OPTION_IMG_PATH 			= "UI/UI_Option_buttun";
 	private const string SELECTED_OPTION_IMG_PATH	= "UI/UI_Option_buttun_pushed";
 
+	/*画像パス*/
+	private const string VS_CPU_IMG_PATH			= "UI/1PvsCPU";
+	private const string SELECTED_VS_CPU_IMG_PATH	= "UI/1PvsCPU_pushed";
+	private const string VS_SECOND_IMG_PATH 		= "UI/1Pvs2P";
+	private const string SELECTED_VS_SECOND_IMG_PATH= "UI/1Pvs2P_pushed";
+
 	/*obj*/
 	private GameObject story;
 	private GameObject battle;
 	private GameObject option;
 
+	private GameObject vscpu;
+	private GameObject vssecond;
 
 	/*表示非表示制御*/
 	public void isVisible(bool visible){
-		if(story==null)		story = GameObject.Find("StoryButton");
-		if(battle==null)	battle = GameObject.Find("BattleButton");
-		if(option==null)	option = GameObject.Find("OptionButton");
+		if (story		==	null)	story  		= 	GameObject.Find("StoryButton");
+		if (battle		==	null)	battle 		= 	GameObject.Find("BattleButton");
+		if (option		==	null)	option 		= 	GameObject.Find("OptionButton");
+
 		story.SetActive (visible);
 		battle.SetActive (visible);
 		option.SetActive (visible);
@@ -28,6 +37,25 @@ public class Menu_Button : MonoBehaviour {
 			changeImg ();
 		}
 	}
+
+	public void isBattle(bool visible){
+		if (vscpu 		== 	null)	vscpu 		=	GameObject.Find("VSCPU");
+		if (vssecond 	==	null)	vssecond	=	GameObject.Find("VS2P");
+		vscpu.SetActive (visible);
+		vssecond.SetActive (visible);
+		if (visible) {
+		}
+	}
+
+	public void changeMake(){
+		if (vscpu 		== 	null)	vscpu 		=	GameObject.Find("VSCPU");
+		if (vssecond 	==	null)	vssecond	=	GameObject.Find("VS2P");
+		Image cpuImg	=	vscpu.GetComponent<Image> ();
+		Image secondImg	=	vssecond.GetComponent<Image> ();
+
+	}
+
+
 
 	/*画像張替え*/
 	public void changeImg(){

@@ -35,24 +35,44 @@ public class Menu_UI_Controller : MonoBehaviour {
 	public void titleScene(){
 		menubackground.logoVisible (true);
 		menubutton.isVisible (false);
+		menubutton.isBattle  (false);
 	}
 
 	public void menuScene(){
 		menubutton.isVisible (true);
 		menubackground.logoVisible (false);
-		subscribe ();
+		menuSubscribe ();
 		Logo.getInstance.mainScene ();
 	}
+	public void battleSelect(){
+		menubutton.isBattle (true);
+		battleSubscribe ();
+	}
 
+	private void battleSubscribe(){
+		First_Key_List list = new First_Key_List ();
+		this.UpdateAsObservable ()
+			.Where (_ => Input.GetKeyDown (list.right_Key))
+			.Subscribe (_ => 
+				{
+					Battle_Button_State.get_Instance.nowStatePlus();
+				});
+		this.UpdateAsObservable ()
+			.Where (_ => Input.GetKeyDown (list.left_Key))
+			.Subscribe (_ => 
+				{
+					Battle_Button_State.get_Instance.nowStateMinus();
+				});
+	}
 
 	/*オブザーバ購読*/
-	private void subscribe(){
+	private void menuSubscribe(){
 		First_Key_List list = new First_Key_List ();
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.right_Key))
 			.Subscribe (_=>
 				{
-					rightMoveButton();
+					buttonstate.nowStatePlus();
 					changeImg();
 				})
 			.AddTo(this);
@@ -62,7 +82,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 			.Where (_ => Input.GetKeyDown (list.left_Key))
 			.Subscribe (_ =>
 				{
-					leftMoveButton ();
+					buttonstate.nowStateMinus ();
 					changeImg ();
 				})
 			.AddTo (this);
@@ -70,15 +90,5 @@ public class Menu_UI_Controller : MonoBehaviour {
 
 	public void changeImg(){
 		menubutton.changeImg ();
-	}
-
-	/*右押されたときの処理*/
-	private void rightMoveButton(){
-		buttonstate.nowStatePlus();
-	}
-
-	/*左押されたときの処理*/
-	private void leftMoveButton(){
-		buttonstate.nowStateMinus ();
 	}
 }
