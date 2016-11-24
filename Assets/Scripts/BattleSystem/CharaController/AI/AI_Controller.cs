@@ -63,13 +63,10 @@ public class AI_Controller: MonoBehaviour {
 		case 2:
 			autobattle = new Guard_State (this);
 			break;
-		case 3:
-			autobattle = new Stay_State (this);
-			break;
 		}
 		autobattle.start ();
 	}
 	public int tekitoudeii(){
-		return Random.Range (0,4);
+		return Random.Range (0,3);
 	}
 }

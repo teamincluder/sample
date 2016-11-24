@@ -35,11 +35,11 @@ public class Battle_Button_State {
 	}
 
 	public void nowStatePlus(){
-		nowstate++;
+		now_State++;
 	}
 
 	public void nowStateMinus(){
-		nowstate--;
+		now_State--;
 	}
 	public void exit(){
 		instance = null;
