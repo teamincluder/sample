@@ -9,7 +9,7 @@ public class Key_Controll: MonoBehaviour {
 	/*どっちのコントローラか判別用*/
 	private enum user{first,second};
 	[SerializeField]
-	private user playing = user.first;
+	private user playing = user.second;
 	private bool ismain = false;
 	public bool set_IsMain{
 		set{
@@ -22,14 +22,6 @@ public class Key_Controll: MonoBehaviour {
 	/*切り替えできるようにインターフェイスを変数にしとく*/
 	private Key_Interface keylist;
 	private Move_Func_InterFace move;
-
-
-	public void set_user(bool isfirst){
-		if (isfirst)
-			playing	=	user.first;
-		else
-			playing	=	user.second;
-	}
 
 	void Awake(){
 		if (triggers == null) triggers = this.GetComponent<Trigger_Interface> ();

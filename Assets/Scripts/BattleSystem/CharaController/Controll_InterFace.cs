@@ -8,7 +8,6 @@ public class Controll_InterFace : MonoBehaviour {
 	private const string FIRST_KEY_CONTROLLER	=	"1P";
 	private const string SECOND_KEY_CONTROLLER	=	"2P";
 
-
 	private Key_Controll 	first;
 	private Key_Controll 	second;
 	private AI_Controller	ai;
@@ -22,7 +21,7 @@ public class Controll_InterFace : MonoBehaviour {
 	}
 
 	void Awake () {
-
+		pvp = Battle_Button_State.get_Instance.now_State == Battle_Button_State.state.second;
 		if (instance == null)
 			instance	=	this;
 		else
@@ -34,7 +33,6 @@ public class Controll_InterFace : MonoBehaviour {
 		secondObj.tag 			=	TagList.getInstance.secondTag;
 		if (pvp) {
 			second	=	secondObj.AddComponent<Key_Controll> ();
-			second.set_user (false);
 		} 
 		else {
 			ai 		=	secondObj.AddComponent<AI_Controller> ();
@@ -48,5 +46,4 @@ public class Controll_InterFace : MonoBehaviour {
 		else
 			ai.set_isMain		=	ismain;
 	}
-
 }
