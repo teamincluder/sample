@@ -31,6 +31,12 @@ public class App_Controller : MonoBehaviour {
 		nowScene = this.gameObject.AddComponent<Scene_Controll_Interface> ();
 		nowScene.changeState(new Title_Scene(this.nowScene));
 		nowScene.nowSceneStart ();
+		this.UpdateAsObservable()
+			.Where(_ => Input.GetKeyDown(KeyCode.Escape))
+			.Subscribe(_=>
+				{
+					Application.Quit();
+				});
 	}
 
 	void Update(){
