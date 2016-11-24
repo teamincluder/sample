@@ -27,7 +27,6 @@ public class First_Move_Func :Move_Func_InterFace {
 		this.transform.localScale = FIRST_RIGHT_MOVE;	
 		vec += this.transform.position;
 		this.transform.position = vec;
-		Animation_Manager.get_Instance.first.run ();
 	}
 
 	public override void leftMove(){
@@ -36,9 +35,16 @@ public class First_Move_Func :Move_Func_InterFace {
 		this.transform.localScale = FIRST_LEFT_MOVE;
 		vec += this.transform.position;
 		this.transform.position = vec;
-		Animation_Manager.get_Instance.first.run ();
 	}
 
+	public override void startLeftMove ()
+	{
+		Animation_Manager.get_Instance.first.run ();
+	}
+	public override void startRightMove ()
+	{
+		Animation_Manager.get_Instance.first.run ();
+	}
 
 	public override void stopLeftMove ()
 	{

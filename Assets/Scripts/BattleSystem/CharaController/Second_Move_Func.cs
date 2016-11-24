@@ -37,6 +37,12 @@ public class Second_Move_Func : Move_Func_InterFace {
 		this.transform.position = vec;
 	}
 
+	public override void startLeftMove ()
+	{
+	}
+	public override void startRightMove ()
+	{
+	}
 
 	public override void stopLeftMove ()
 	{

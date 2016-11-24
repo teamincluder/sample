@@ -105,8 +105,18 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => Input.GetKeyDown(keylist.left_Key))
 			.Subscribe (_=>
 				{
+					move.startLeftMove();
+				});
+		
+		/*左移動*/
+		this.UpdateAsObservable()
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKey(keylist.left_Key))
+			.Subscribe (_=>
+				{
 					move.leftMove();
 				});
+
 		/*左終了*/
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
@@ -122,8 +132,18 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => Input.GetKeyDown(keylist.right_Key))
 			.Subscribe (_=>
 				{
+					move.startRightMove();
+				});
+
+		/*右移動*/
+		this.UpdateAsObservable()
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKey(keylist.right_Key))
+			.Subscribe (_=>
+				{
 					move.rightMove();
 				});
+		
 		/*右終了*/
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
