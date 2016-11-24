@@ -21,7 +21,7 @@ public class Battle_Button_State {
 			return nowstate;
 		}
 		set{
-			if (value >= state.cpu && state.second <= value)
+			if (value >= state.cpu && state.second >= value)
 				nowstate = value;
 		}
 	}
