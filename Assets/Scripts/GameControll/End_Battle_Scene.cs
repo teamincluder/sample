@@ -17,7 +17,10 @@ public class End_Battle_Scene : Scene_Interface {
 	}
 
 	public override void nextScene (){
-		this.state.changeState (new Menu_Scene(this.state),"Menu");
+		if (this.state.countDown ())
+			this.state.changeState (new Menu_Scene (this.state), "Menu");
+		else
+			this.state.changeState (new Start_Battle_Scene(this.state));
 	}
 
 	public override void onClick (){
