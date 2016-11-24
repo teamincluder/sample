@@ -16,6 +16,13 @@ public class Menu_UI_Controller : MonoBehaviour {
 
 	private Button_State buttonstate;
 
+	private bool menuselected = false;
+	public 	bool menu_Selected{
+		get{
+			return menuselected;
+		}
+	}
+
 	void Awake () {
 		if (instance == null)
 			instance = this;
@@ -45,6 +52,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 		Logo.getInstance.mainScene ();
 	}
 	public void battleSelect(){
+		menuselected = true;
 		menubutton.isBattle	(true);
 		menubutton.isVisible (false);
 		battleSubscribe ();
@@ -54,16 +62,22 @@ public class Menu_UI_Controller : MonoBehaviour {
 		First_Key_List list = new First_Key_List ();
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.right_Key))
+			.Where (_ => menuselected )
 			.Subscribe (_ => 
 				{
 					Battle_Button_State.get_Instance.nowStatePlus();
-				});
+					changeMake();
+				})
+			.AddTo(this);
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.left_Key))
+			.Where (_ => menuselected )
 			.Subscribe (_ => 
 				{
 					Battle_Button_State.get_Instance.nowStateMinus();
-				});
+					changeMake();
+				})
+			.AddTo(this);
 	}
 
 	/*オブザーバ購読*/
@@ -71,6 +85,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 		First_Key_List list = new First_Key_List ();
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.right_Key))
+			.Where (_ => !menuselected)
 			.Subscribe (_=>
 				{
 					buttonstate.nowStatePlus();
@@ -81,6 +96,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 
 		this.UpdateAsObservable ()
 			.Where (_ => Input.GetKeyDown (list.left_Key))
+			.Where (_ => !menuselected )
 			.Subscribe (_ =>
 				{
 					buttonstate.nowStateMinus ();
@@ -89,6 +105,9 @@ public class Menu_UI_Controller : MonoBehaviour {
 			.AddTo (this);
 	}
 
+	public void changeMake(){
+		menubutton.changeMake ();
+	}
 	public void changeImg(){
 		menubutton.changeImg ();
 	}

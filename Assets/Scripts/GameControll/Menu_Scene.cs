@@ -22,12 +22,16 @@ public class Menu_Scene : Scene_Interface {
 			Debug.Log ("Story");
 		} 
 		else if (buttonstate.checkBattle ()) {
-			Menu_UI_Controller.get_Instance.battleSelect ();
+			if (Menu_UI_Controller.get_Instance.menu_Selected) {
+				this.state.changeState (new Start_Battle_Scene (this.state),"Battle");
+				buttonstate.exit ();
+			}
+			else
+				Menu_UI_Controller.get_Instance.battleSelect ();
 		}
 		else if (buttonstate.checkOption ()) {
 			Debug.Log ("option");
 		}
-		buttonstate.exit ();
 	}
 
 	public override void onClick (){

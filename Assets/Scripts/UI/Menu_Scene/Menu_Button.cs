@@ -62,9 +62,7 @@ public class Menu_Button : MonoBehaviour {
 			secondImg.sprite	= makeSprite (SELECTED_VS_SECOND_IMG_PATH);
 		}
 	}
-
-
-
+		
 	/*画像張替え*/
 	public void changeImg(){
 		if(story==null)		story = GameObject.Find("StoryButton");
