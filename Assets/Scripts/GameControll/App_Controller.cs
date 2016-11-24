@@ -5,9 +5,7 @@ using UniRx;
 using UniRx.Triggers;
 
 public class App_Controller : MonoBehaviour {
-	private const int BATTLE_COUNT = 3;
 	private const int FRAMERATE = 60;
-
 
 	private static App_Controller instance;
 	public static App_Controller get_Instance{
@@ -21,7 +19,7 @@ public class App_Controller : MonoBehaviour {
 	//シングルトン
 	void Awake(){
 		Application.targetFrameRate = FRAMERATE;
-		if (instance == null)
+			if (instance == null)
 			instance = this;
 		else
 			Destroy (this.gameObject);

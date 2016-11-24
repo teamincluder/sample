@@ -12,6 +12,24 @@ public class Scene_Controll_Interface :MonoBehaviour{
 				{
 					nowscene.onClick();
 				});
+		this.battlecounter = BATTLE_COUNT;
+	}
+	private const int BATTLE_COUNT = 3;
+
+	private int battlecounter;
+	public	int battle_Counter{
+		get{
+			return battlecounter;
+		}
+	}
+	public bool countDown(){
+		battlecounter--;
+		bool battleend = false;
+		if (battlecounter <= 0) {
+			battlecounter = BATTLE_COUNT;
+			battleend = true;
+		}
+		return battleend;
 	}
 
 	public void nowSceneStart(){
