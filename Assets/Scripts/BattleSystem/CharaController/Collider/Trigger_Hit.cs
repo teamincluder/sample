@@ -2,6 +2,11 @@
 using System.Collections;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Trigger_Hit : MonoBehaviour {
+	private const string FIRST_GUARD_PATH 	= "1P/Triggers/Guard";
+	private const string SECOND_GUARD_PATH	= "2P/Triggers/Guard";
+
+	private Guard_Controller firstguard;
+	private Guard_Controller secondguard;
 	private bool ishit 		= 	false;
 	private bool ishitguard	=	false;
 	private int usernumber	= 	0;
@@ -24,8 +29,17 @@ public class Trigger_Hit : MonoBehaviour {
 	}
 
 	void Update(){
-		if (!Guard_Controller.get_Instance.is_Visible)
-			ishitguard = false;
+		if (firstguard  == null) firstguard  = GameObject.Find (FIRST_GUARD_PATH).GetComponent<Guard_Controller>();
+		if (secondguard == null) secondguard = GameObject.Find (SECOND_GUARD_PATH).GetComponent<Guard_Controller> ();
+
+		if (usernumber == 1) {
+			if (secondguard.is_Visible)
+				ishitguard = false;
+		} 
+		else {
+			if (firstguard.is_Visible)
+				ishitguard = false;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -39,8 +53,6 @@ public class Trigger_Hit : MonoBehaviour {
 			ishit = true;
 		if (checkHitGuardTag (other.tag))
 			ishitguard = true;
-		/*else
-			ishitguard = false;*/
 	}
 	void OnTriggerExit2D(Collider2D other){
 		if (checkHitTag(other.tag))

@@ -37,6 +37,15 @@ public class Second_Move_Func : Move_Func_InterFace {
 		this.transform.position = vec;
 	}
 
+
+	public override void stopLeftMove ()
+	{
+	}
+
+	public override void stopRightMove ()
+	{
+	}
+
 	public override void downMove(){
 		Debug.Log ("しゃがむ");
 	}
@@ -63,5 +72,4 @@ public class Second_Move_Func : Move_Func_InterFace {
 	public override void deathBlowMove(){
 		HP_Controller.getInstance.secondDeathBlow (triggers.deathblow_Guard);
 	}
-
 }

@@ -5,4 +5,5 @@
 	void lose();
 	void guard();
 	void damage();
+	void stopRun();
 }

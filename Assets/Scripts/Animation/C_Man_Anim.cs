@@ -32,4 +32,7 @@ public class C_Man_Anim : MonoBehaviour,Animation_Interface {
 	{
 		anim.SetTrigger ("Damage");
 	}
+	public void stopRun(){
+		anim.SetTrigger ("ExitRun");
+	}
 }

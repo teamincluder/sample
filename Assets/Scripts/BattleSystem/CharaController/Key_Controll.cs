@@ -99,22 +99,38 @@ public class Key_Controll: MonoBehaviour {
 				});
 		*/
 
-		/*左移動*/
+		/*左移動開始*/
 		this.UpdateAsObservable()
 			.Where (_ => ismain)
-			.Where (_ => Input.GetKey(keylist.left_Key))
+			.Where (_ => Input.GetKeyDown(keylist.left_Key))
 			.Subscribe (_=>
 				{
 					move.leftMove();
 				});
+		/*左終了*/
+		this.UpdateAsObservable ()
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyUp (keylist.left_Key))
+			.Subscribe (_ => 
+				{
+					move.stopLeftMove();
+				});
 
-		/*右移動*/
+		/*右移動開始*/
 		this.UpdateAsObservable()
 			.Where (_ => ismain)
-			.Where (_ => Input.GetKey(keylist.right_Key))
+			.Where (_ => Input.GetKeyDown(keylist.right_Key))
 			.Subscribe (_=>
 				{
 					move.rightMove();
+				});
+		/*右終了*/
+		this.UpdateAsObservable ()
+			.Where (_ => ismain)
+			.Where (_ => Input.GetKeyUp (keylist.right_Key))
+			.Subscribe (_ => 
+				{
+					move.stopRightMove();
 				});
 
 		/*ジャンプ*/

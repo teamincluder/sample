@@ -11,6 +11,8 @@ public abstract class Move_Func_InterFace :MonoBehaviour{
 
 	public abstract void rightMove();
 	public abstract void leftMove();
+	public abstract void stopLeftMove ();
+	public abstract void stopRightMove ();
 	public abstract void downMove();
 	public abstract void jumpMove();
 	public abstract void guardMove();

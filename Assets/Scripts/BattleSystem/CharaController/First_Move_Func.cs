@@ -39,6 +39,17 @@ public class First_Move_Func :Move_Func_InterFace {
 		Animation_Manager.get_Instance.first.run ();
 	}
 
+
+	public override void stopLeftMove ()
+	{
+		Animation_Manager.get_Instance.first.stopRun ();
+	}
+
+	public override void stopRightMove ()
+	{
+		Animation_Manager.get_Instance.first.stopRun ();
+	}
+
 	public override void downMove(){
 		Debug.Log ("しゃがむ");
 	}
