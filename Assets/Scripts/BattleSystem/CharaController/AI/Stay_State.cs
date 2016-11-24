@@ -7,8 +7,11 @@ public class Stay_State : AI_State_Interface {
 	}
 
 	public override void start (){
-		Debug.Log ("stay");
-		changeState ();
+		if (dist_X < near && pos_Ene_Y) {
+		}
+		else
+			changeState ();
+		
 	}
 
 	public override void update (){
