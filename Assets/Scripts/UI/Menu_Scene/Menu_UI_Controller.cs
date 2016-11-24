@@ -55,6 +55,7 @@ public class Menu_UI_Controller : MonoBehaviour {
 		menuselected = true;
 		menubutton.isBattle	(true);
 		menubutton.isVisible (false);
+		changeMake ();
 		battleSubscribe ();
 	}
 

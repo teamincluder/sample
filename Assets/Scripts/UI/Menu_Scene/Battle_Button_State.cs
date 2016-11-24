@@ -27,11 +27,11 @@ public class Battle_Button_State {
 	}
 
 	public bool isCPU(){
-		return ( nowstate == state.cpu );
+		return ( now_State == state.cpu );
 	}
 
 	public bool isSecond(){
-		return ( nowstate == state.second );
+		return ( now_State == state.second );
 	}
 
 	public void nowStatePlus(){
