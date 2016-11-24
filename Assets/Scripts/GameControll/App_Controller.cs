@@ -5,16 +5,18 @@ using UniRx;
 using UniRx.Triggers;
 
 public class App_Controller : MonoBehaviour {
-	
+	private const int BATTLE_COUNT = 3;
 	private const int FRAMERATE = 60;
-	private static App_Controller instance;
-	private Scene_Controll_Interface nowScene;
 
+
+	private static App_Controller instance;
 	public static App_Controller get_Instance{
 		get{
 			return App_Controller.instance;
 		}
 	}
+
+	private Scene_Controll_Interface nowScene;
 
 	//シングルトン
 	void Awake(){
