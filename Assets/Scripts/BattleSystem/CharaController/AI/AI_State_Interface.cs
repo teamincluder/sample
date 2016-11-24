@@ -22,12 +22,13 @@ public abstract class AI_State_Interface {
 			return distx;
 		}
 	}
-	public float dist_Y{
+	public bool pos_Ene_Y{
 		get{
-			float disty	= target.position.y - mine.position.y;
-			if (disty < 0)
-				disty = -disty;
-			return disty;
+			bool enemyonmine = false;
+			float poseney	= target.position.y - mine.position.y;
+			if (poseney > 0)
+				enemyonmine = true;
+			return enemyonmine;
 		}
 	}
 	public bool enemyIsRight{
