@@ -19,7 +19,7 @@ public class App_Controller : MonoBehaviour {
 	//シングルトン
 	void Awake(){
 		Application.targetFrameRate = FRAMERATE;
-			if (instance == null)
+		if (instance == null)
 			instance = this;
 		else
 			Destroy (this.gameObject);
