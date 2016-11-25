@@ -79,10 +79,12 @@ public class Second_Move_Func : Move_Func_InterFace {
 
 	public override void jabMove(){
 		HP_Controller.getInstance.secondJab (triggers.jab_Guard);
+		Animation_Manager.get_Instance.second.jab ();
 	}
 
 	public override void strongMove(){
 		HP_Controller.getInstance.secondStrong (triggers.strong_Guard);
+		Animation_Manager.get_Instance.second.strong ();
 	}
 
 	public override void deathBlowMove(){

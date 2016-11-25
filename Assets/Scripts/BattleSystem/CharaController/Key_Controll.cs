@@ -61,7 +61,6 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => !(Input.GetKey(keylist.guard_Key)))
 			.Where (_ => !(Input.GetKey(keylist.strong_Key)))
 			.Where (_ => Input.GetKeyDown(keylist.jab_Key))
-			.Where (_ => triggers.jab_Hit)
 			.Subscribe(_ =>
 				{
 					move.jabMove();
@@ -73,7 +72,6 @@ public class Key_Controll: MonoBehaviour {
 			.Where (_ => !(Input.GetKey(keylist.guard_Key)))
 			.Where (_ => !(Input.GetKey(keylist.jab_Key)))
 			.Where (_ => Input.GetKeyDown(keylist.strong_Key))
-			.Where (_ => triggers.strong_Hit)
 			.Subscribe (_ => 
 				{
 					move.strongMove();

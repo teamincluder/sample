@@ -66,6 +66,9 @@ public class HP_Controller : MonoBehaviour {
 	private void draw(user playing,float damage,bool isGuard){
 		if (playing == user.first) {
 			secondhp	-= damageCalc (damage, isGuard);
+			if (!isGuard) {
+				Animation_Manager.get_Instance.second.damage ();
+			}
 		}
 		else if (playing == user.second) {
 			firsthp -= damageCalc (damage, isGuard);
