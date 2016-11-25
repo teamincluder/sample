@@ -9,10 +9,14 @@ public class Attack_State : AI_State_Interface {
 
 	public override void update ()
 	{
-		if (dist_X >= near) 
+		if (dist_X >= near)
 			changeState ();
-		else if (timer <= 0)
+		else if (timer <= 0) {
 			attack ();
+			int result = Random.Range (0,2);
+			if (result == 0)
+				changeState ();
+		}
 		else
 			timeCount ();
 	}

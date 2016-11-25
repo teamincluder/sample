@@ -78,7 +78,6 @@ public class HP_Controller : MonoBehaviour {
 
 	private float damageCalc(float damage,bool isGuard){
 		float result = damage;
-		Debug.Log (isGuard);
 		if (isGuard) {
 			if (GUARD <= damage)
 				result -= GUARD;

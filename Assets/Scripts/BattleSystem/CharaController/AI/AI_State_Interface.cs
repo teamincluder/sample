@@ -5,7 +5,7 @@ public abstract class AI_State_Interface {
 	protected Transform mine;
 	protected bool 		ismainfunc 	= 	false;
 	protected float 	timer 		= 	0f;
-	protected float		near		=	1.5f;
+	protected float		near		=	2f;
 
 	public AI_State_Interface(AI_Controller manager){
 		this.manager = manager;
