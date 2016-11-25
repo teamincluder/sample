@@ -69,8 +69,10 @@ public class HP_Controller : MonoBehaviour {
 		}
 		else if (playing == user.second) {
 			firsthp -= damageCalc (damage, isGuard);
-			if(!isGuard)
+			if (!isGuard) {
 				Audio_Manager.get_Instance.first_Audio.damage ();
+				Animation_Manager.get_Instance.first.damage ();
+			}
 		}
 		this.checkEnd ();
 		hpbar.lifeDraw (firsthp,secondhp);
