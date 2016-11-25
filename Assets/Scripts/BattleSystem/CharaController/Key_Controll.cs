@@ -24,15 +24,12 @@ public class Key_Controll: MonoBehaviour {
 	private Move_Func_InterFace move;
 
 	void Awake(){
-		if (triggers == null) triggers = this.GetComponent<Trigger_Interface> ();
 		if (playing == user.first) {
 			move = this.gameObject.AddComponent<First_Move_Func> ();
 			keylist = new First_Key_List ();
-			triggers.init (1);
 		} else {
 			move = this.gameObject.AddComponent<Second_Move_Func> ();
 			keylist = new Second_Key_List ();
-			triggers.init (2);
 		}
 	}
 

@@ -23,6 +23,7 @@ public class Second_Move_Func : Move_Func_InterFace {
 							.FindChild (JUMP_PATH).gameObject
 							.AddComponent<Jump_Trigger> ();
 		triggers = this.GetComponent<Trigger_Interface> ();
+		triggers.init (2);
 	}
 	public override void rightMove(){
 		Vector3	vec	= Vector3.zero;
@@ -78,12 +79,14 @@ public class Second_Move_Func : Move_Func_InterFace {
 	}
 
 	public override void jabMove(){
-		HP_Controller.getInstance.secondJab (triggers.jab_Guard);
+		if(triggers.jab_Hit)
+			HP_Controller.getInstance.secondJab (triggers.jab_Guard);
 		Animation_Manager.get_Instance.second.jab ();
 	}
 
 	public override void strongMove(){
-		HP_Controller.getInstance.secondStrong (triggers.strong_Guard);
+		if(triggers.strong_Hit)
+			HP_Controller.getInstance.secondStrong (triggers.strong_Guard);
 		Animation_Manager.get_Instance.second.strong ();
 	}
 

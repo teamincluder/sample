@@ -31,7 +31,6 @@ public class End_Battle_Checker {
 		}
 		set{
 			firstwin1 = value;
-			Debug.Log ("is_First_Win:" + value);
 			Battle_Win.get_Instance.DicisionWin (firstwin1);
 			Battle_UI_Controller.get_Instance.endBattleScene (firstwin1);
 

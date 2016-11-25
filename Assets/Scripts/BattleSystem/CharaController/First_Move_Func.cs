@@ -21,6 +21,7 @@ public class First_Move_Func :Move_Func_InterFace {
 							.FindChild (JUMP_PATH).gameObject
 							.AddComponent<Jump_Trigger> ();
 		triggers 	=	this.GetComponent<Trigger_Interface> (); 
+		triggers.init (1);
 	}
 
 	public override void rightMove(){
