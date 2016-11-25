@@ -39,17 +39,21 @@ public class Second_Move_Func : Move_Func_InterFace {
 
 	public override void startLeftMove ()
 	{
+		Animation_Manager.get_Instance.second.run ();
 	}
 	public override void startRightMove ()
 	{
+		Animation_Manager.get_Instance.second.run ();
 	}
 
 	public override void stopLeftMove ()
 	{
+		Animation_Manager.get_Instance.second.stopRun();
 	}
 
 	public override void stopRightMove ()
 	{
+		Animation_Manager.get_Instance.second.stopRun();
 	}
 
 	public override void downMove(){
@@ -62,9 +66,11 @@ public class Second_Move_Func : Move_Func_InterFace {
 
 	public override void guardMove(){
 		gc.isVisible (true);
+		Animation_Manager.get_Instance.second.guard ();
 	}
 	public override void noguardMove(){
 		gc.isVisible (false);
+		Animation_Manager.get_Instance.second.stopGuard ();
 	}
 
 	public override void jabMove(){

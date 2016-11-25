@@ -6,4 +6,5 @@
 	void guard();
 	void damage();
 	void stopRun();
+	void stopGuard ();
 }

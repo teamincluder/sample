@@ -66,10 +66,12 @@ public class First_Move_Func :Move_Func_InterFace {
 
 	public override void guardMove(){
 		gc.isVisible (true);
+		Animation_Manager.get_Instance.first.guard ();
 	}
 
 	public override void noguardMove(){
 		gc.isVisible (false);
+		Animation_Manager.get_Instance.first.stopGuard ();
 	}
 
 	public override void jabMove(){

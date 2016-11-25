@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 public class Animation_Manager : MonoBehaviour{
 	private const 	string FIRST_ANIM	=	"1P/C_Man";
+	private const 	string SECOND_ANIM	=	"2P/Syatyo";
 
 
 	private static 	Animation_Manager instance;
@@ -18,7 +19,14 @@ public class Animation_Manager : MonoBehaviour{
 			return firstanim;
 		}
 	}
-
+	private Animation_Interface secondanim;
+	public 	Animation_Interface second{
+		get{
+			if (secondanim == null)
+				secondanim = GameObject.Find (SECOND_ANIM).GetComponent<Animation_Interface> ();
+			return secondanim;
+		}
+	}
 	private void Awake(){
 		if (instance == null)
 			instance = this;

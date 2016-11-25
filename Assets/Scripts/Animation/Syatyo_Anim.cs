@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class C_Man_Anim : MonoBehaviour,Animation_Interface {
+public class Syatyo_Anim : MonoBehaviour,Animation_Interface {
 	Animator anim;
 
 	void Awake(){
@@ -28,6 +28,7 @@ public class C_Man_Anim : MonoBehaviour,Animation_Interface {
 	{
 		anim.SetTrigger ("Guard");
 	}
+
 	public void stopGuard ()
 	{
 		anim.SetTrigger ("GuardEnd");
