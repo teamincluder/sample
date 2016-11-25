@@ -32,7 +32,6 @@ public class Battle_Win {
 	}
 
 	public void init(){
-		Debug.Log (ANGEL_PATH1+"1_1");
 		angel1[0] = GameObject.Find(ANGEL_PATH1 + "1_1").GetComponent<Image>();
 		angel1[1] = GameObject.Find(ANGEL_PATH1 + "1_2").GetComponent<Image>();
 		angel1[2] = GameObject.Find(ANGEL_PATH1 + "1_3").GetComponent<Image>();

@@ -8,7 +8,6 @@ using System.Collections;
 	実装部はKey_Controller
 */
 public class Second_Move_Func : Move_Func_InterFace {
-	Unit unit = new Unit();
 	Rigidbody2D rb;
 	Guard_Controller gc;
 	Jump_Trigger	 jt;

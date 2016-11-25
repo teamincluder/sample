@@ -69,9 +69,6 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Key_Controll.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Move_Func_InterFace.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Second_Move_Func.cs" />
-     <Compile Include="Assets\Scripts\BattleSystem\CharaController\WaitForAnimation.cs" />
-     <Compile Include="Assets\Scripts\Debug\DevelopSceneManager.cs" />
-     <Compile Include="Assets\Scripts\Debug\Unit.cs" />
      <Compile Include="Assets\Scripts\GameControll\App_Controller.cs" />
      <Compile Include="Assets\Scripts\GameControll\End_Battle_Checker.cs" />
      <Compile Include="Assets\Scripts\GameControll\End_Battle_Scene.cs" />
