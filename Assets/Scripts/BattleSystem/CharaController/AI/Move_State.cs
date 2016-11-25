@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 public class Move_State : AI_State_Interface {
+	private bool isleft 	= false;
+	private bool isright	= false;
 	public Move_State(AI_Controller manager):base(manager){
 	}
 	public override void start ()
@@ -19,6 +21,10 @@ public class Move_State : AI_State_Interface {
 
 	public override void changeState ()
 	{
+		if (isright)
+			this.manager.move_Func.stopRightMove ();
+		if (isleft)
+			this.manager.move_Func.stopLeftMove ();
 		this.manager.changeState (this.manager.tekitoudeii());
 	}
 
@@ -26,10 +32,26 @@ public class Move_State : AI_State_Interface {
 		if (ismainfunc)
 			return;
 		ismainfunc = true;
-		if (enemyIsRight)
+		if (enemyIsRight) {
+			if (!isright) {
+				this.manager.move_Func.startRightMove ();
+				isright = true;
+			}
+			if (isleft)
+				this.manager.move_Func.stopLeftMove ();
+
 			this.manager.move_Func.rightMove ();
-		else
+		}
+		else {
+			if (!isleft) {
+				this.manager.move_Func.startLeftMove ();
+				isleft = true;
+			}
+			if (isright)
+				this.manager.move_Func.stopRightMove ();
+			
 			this.manager.move_Func.leftMove ();
+		}
 		timer = Random.Range (0.01f,0.05f);
 		ismainfunc = false;
 	}
