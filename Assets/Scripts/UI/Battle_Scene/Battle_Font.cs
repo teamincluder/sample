@@ -17,6 +17,7 @@ public class Battle_Font : MonoBehaviour {
 
 	}
 	public void setMessage(bool firstwin){
+		Debug.Log ("setmessage:" + firstwin);
 		Text tex1 = firstresult.GetComponent<Text> ();
 		Text tex2 = secondresult.GetComponent<Text> ();
 		if (firstwin) {

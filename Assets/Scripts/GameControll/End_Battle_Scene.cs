@@ -8,7 +8,7 @@ public class End_Battle_Scene : Scene_Interface {
 
 
 	public override void start (){
-		Battle_UI_Controller.get_Instance.endBattleScene (End_Battle_Checker.get_Instance.is_First_Win);
+		//Battle_UI_Controller.get_Instance.endBattleScene (End_Battle_Checker.get_Instance.is_First_Win);
 		Controll_InterFace.get_Instance.isMain (false);
 	}
 

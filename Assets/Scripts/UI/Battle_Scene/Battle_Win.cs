@@ -47,7 +47,7 @@ public class Battle_Win {
 		drawAngel ();
 	}
 	/*どっちが勝ったか送るとAngelの数が変わる*/
-	public void DicisionWin(bool winFlug){
+	public bool DicisionWin(bool winFlug){
 		if (WINPLAYER == winFlug) {
 			win1++;
 			AddAngel (win1, winFlug);
@@ -55,6 +55,7 @@ public class Battle_Win {
 			win2++;
 			AddAngel (win2, winFlug);
 		}
+		return winFlug;
 	}
 	private void AddAngel(int win, bool winFlug){
 		if (WINUPPER > win) {
