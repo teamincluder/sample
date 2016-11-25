@@ -17,8 +17,10 @@ public class End_Battle_Scene : Scene_Interface {
 	}
 
 	public override void nextScene (){
-		if (this.state.countDown ())
+		if (this.state.countDown ()) {
 			this.state.changeState (new Title_Scene (this.state), "Menu");
+			Battle_Win.get_Instance.exit ();
+		}
 		else
 			this.state.changeState (new Start_Battle_Scene(this.state),"Battle");
 	}

@@ -35,6 +35,7 @@ public class Battle_UI_Controller : MonoBehaviour {
 		battlefont.setMessage (START_MESSAGE);
 		battletimer.setTime (BATTLE_TIME);
 		battletimer.isMain (false);
+		Battle_Win.get_Instance.init ();
 	}
 	public void mainBattleScene(){
 		battlefont.isVisible (true);

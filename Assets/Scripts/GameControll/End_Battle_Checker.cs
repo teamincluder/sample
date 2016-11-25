@@ -26,10 +26,13 @@
 	public bool is_First_Win{
 		set{
 			firstwin = value;
-			if (firstwin)
+			Battle_Win.get_Instance.DicisionWin (firstwin);
+			if (firstwin) {
 				Audio_Manager.get_Instance.first_Audio.win ();
-			else
+			} 
+			else {
 				Audio_Manager.get_Instance.first_Audio.lose ();
+			}
 		}
 	}
 }
