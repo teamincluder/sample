@@ -3,6 +3,7 @@ using System.Collections;
 public abstract class Move_Func_InterFace :MonoBehaviour{
 	protected const float	SPEED 		= 0.06f;
 	protected const string	GUARD_PATH	= "Triggers/Guard";
+	protected const string 	JUMP_PATH	= "Triggers/Jump";
 	protected Vector3 		FIRST_RIGHT_MOVE 	= new Vector3 (1f,1f,1f);
 	protected Vector3 		FIRST_LEFT_MOVE		= new Vector3 (-1f,1f,1f);
 	protected Vector3 		SECOND_RIGHT_MOVE	= new Vector3 (-1f, 1f, 1f);

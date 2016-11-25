@@ -11,6 +11,7 @@ public class Second_Move_Func : Move_Func_InterFace {
 	Unit unit = new Unit();
 	Rigidbody2D rb;
 	Guard_Controller gc;
+	Jump_Trigger	 jt;
 	Trigger_Interface triggers;
 
 	private void Awake(){
@@ -19,6 +20,9 @@ public class Second_Move_Func : Move_Func_InterFace {
 					.FindChild (GUARD_PATH).gameObject
 					.AddComponent<Guard_Controller> ();
 		gc.init (false);
+		jt			=	this.gameObject.transform
+							.FindChild (JUMP_PATH).gameObject
+							.AddComponent<Jump_Trigger> ();
 		triggers = this.GetComponent<Trigger_Interface> ();
 	}
 	public override void rightMove(){
@@ -61,7 +65,8 @@ public class Second_Move_Func : Move_Func_InterFace {
 	}
 
 	public override void jumpMove(){
-		rb.AddForce (JUMP_MOVE, ForceMode2D.Impulse);
+		if(jt.is_Ground)
+			rb.AddForce (JUMP_MOVE, ForceMode2D.Impulse);
 	}
 
 	public override void guardMove(){

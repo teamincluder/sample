@@ -7,16 +7,19 @@ using System.Collections;
 	実装部はKey_Controller
 */
 public class First_Move_Func :Move_Func_InterFace {
-	Rigidbody2D	rb;
-	Guard_Controller gc;
+	Rigidbody2D			rb;
+	Guard_Controller	gc;
+	Jump_Trigger		jt;
 	Trigger_Interface triggers;
-	private bool isground	=	false;
 	private void Awake(){
 		rb 			=	this.GetComponent<Rigidbody2D>();
 		gc			=	this.gameObject.transform
 							.FindChild (GUARD_PATH).gameObject
 							.AddComponent<Guard_Controller> ();
 		gc.init (true);
+		jt			=	this.gameObject.transform
+							.FindChild (JUMP_PATH).gameObject
+							.AddComponent<Jump_Trigger> ();
 		triggers 	=	this.GetComponent<Trigger_Interface> (); 
 		
 	}
@@ -61,7 +64,8 @@ public class First_Move_Func :Move_Func_InterFace {
 	}
 
 	public override void jumpMove(){
-		rb.AddForce (JUMP_MOVE, ForceMode2D.Impulse);
+		if(jt.is_Ground)
+			rb.AddForce (JUMP_MOVE, ForceMode2D.Impulse);
 	}
 
 	public override void guardMove(){
@@ -89,6 +93,5 @@ public class First_Move_Func :Move_Func_InterFace {
 	public override void deathBlowMove(){
 		HP_Controller.getInstance.firstDeathBlow (triggers.deathblow_Guard);
 	}
-
 }
 
