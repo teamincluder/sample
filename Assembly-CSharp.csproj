@@ -57,7 +57,6 @@
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Attack_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Guard_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Move_State.cs" />
-     <Compile Include="Assets\Scripts\BattleSystem\CharaController\AI\Stay_State.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\Guard_Controller.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\Jump_Trigger.cs" />
      <Compile Include="Assets\Scripts\BattleSystem\CharaController\Collider\TagList.cs" />

@@ -31,18 +31,15 @@ public class Battle_UI_Controller : MonoBehaviour {
 	}
 
 	public void startBattleScene(){
-		battlefont.isVisible (true);
-		battlefont.setMessage (START_MESSAGE);
+		battlefont.isVisible (false);
 		battletimer.setTime (BATTLE_TIME);
 		battletimer.isMain (false);
 		Battle_Win.get_Instance.init ();
 	}
 	public void mainBattleScene(){
-		battlefont.isVisible (true);
-		battlefont.setMessage ("Main");
 		battletimer.isMain (true);
 	}
-	public void endBattleScene(string result){
+	public void endBattleScene(bool result){
 		battlefont.isVisible (true);
 		battlefont.setMessage (result);
 		battletimer.isMain (false);

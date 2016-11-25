@@ -1,8 +1,9 @@
-﻿public class End_Battle_Checker {
+﻿using UnityEngine;
+public class End_Battle_Checker {
 	
 	private static End_Battle_Checker instance =null;
 	private bool isend 		=	false;
-	private bool firstwin	=	false;
+	private bool firstwin;
 
 	public static End_Battle_Checker get_Instance{
 		get{
@@ -24,9 +25,14 @@
 		}
 	}
 	public bool is_First_Win{
+		get{
+			return firstwin;
+		}
 		set{
 			firstwin = value;
+			Debug.Log (firstwin);
 			Battle_Win.get_Instance.DicisionWin (firstwin);
+
 			if (firstwin) {
 				Audio_Manager.get_Instance.first_Audio.win ();
 			} 
