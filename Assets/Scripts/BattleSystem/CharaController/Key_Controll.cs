@@ -38,12 +38,13 @@ public class Key_Controll: MonoBehaviour {
 		/*ガード処理*/
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
-			.Where (_ => Input.GetKey(keylist.guard_Key))
+			.Where (_ => Input.GetKeyDown(keylist.guard_Key))
 			.Subscribe (_ => 
 				{
 					move.guardMove();
 				});
 
+		/*ガード終了処理*/
 		this.UpdateAsObservable ()
 			.Where (_ => ismain)
 			.Where (_ => Input.GetKeyUp (keylist.guard_Key))
